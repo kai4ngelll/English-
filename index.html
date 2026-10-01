@@ -416,7 +416,25 @@ const S={view:"boot",tab:"home",tg:null,acc:null,open:{},filter:"all",res:null};
 const defD=()=>({xp:0,streak:0,best:0,last:-1,days:{},done:{},words:{},ach:{},chats:0,goal:30,theme:"light",accent:"blue",sound:1,haptic:1,rate:.9,auto:0,perfect:0,lvl:"A1",levelLocked:1,placementDone:0,placementBy:{},levelStats:Object.fromEntries(["A1","A2","B1","B2","C1","C2"].map(x=>[x,{n:0,ok:0,total:0}])),upd:0});
 
 /* --- Telegram --- */
-function tgInit(){if(!TG)return;try{TG.ready();TG.expand();TG.disableVerticalSwipes&&TG.disableVerticalSwipes();TG.setHeaderColor&&TG.setHeaderColor("#FFFFFF");TG.setBackgroundColor&&TG.setBackgroundColor("#FFFFFF");TG.setBottomBarColor&&TG.setBottomBarColor("#FFFFFF")}catch(e){}}
+function tgInit(){
+ if(!TG)return;
+ try{
+  /* Telegram fullscreen gives the native Mini App chrome the compact
+     "Закрыть / chevron / menu" layout from the reference screenshot. */
+  TG.ready();
+  TG.setHeaderColor&&TG.setHeaderColor("#FFFFFF");
+  TG.setBackgroundColor&&TG.setBackgroundColor("#FFFFFF");
+  TG.setBottomBarColor&&TG.setBottomBarColor("#FFFFFF");
+  if(TG.requestFullscreen){
+   try{TG.requestFullscreen();}catch(e){TG.expand&&TG.expand();}
+  }else{
+   TG.expand&&TG.expand();
+  }
+  /* Keep Telegram's native header gestures available in fullscreen. */
+ }catch(e){
+  try{TG.expand&&TG.expand();}catch(_e){}
+ }
+}
 function applyTheme(){
  document.documentElement.dataset.theme="light";document.documentElement.dataset.accent="blue";
  try{TG&&TG.setHeaderColor&&TG.setHeaderColor("#FFFFFF");TG&&TG.setBackgroundColor&&TG.setBackgroundColor("#FFFFFF");TG&&TG.setBottomBarColor&&TG.setBottomBarColor("#FFFFFF")}catch(e){}
