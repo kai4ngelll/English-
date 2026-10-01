@@ -1,5 +1,4 @@
-<script>
-  window.LINGUA_DATA = window.LINGUA_DATA || {};
+ window.LINGUA_DATA = window.LINGUA_DATA || {};
   window.LINGUA_DATA.B1 = [
     // ─── PRESENT PERFECT ───
     { id: 'b1_1', type: 'choice', q: 'I ___ finished my homework.', opts: ['has','have','am','do'], correct: 1, topic: 'Present Perfect' },
@@ -185,4 +184,3 @@
     { id: 'b1_149', type: 'choice', q: 'It\'s worth ___ this book.', opts: ['read','reading','to read','reads'], correct: 1, topic: 'Сложные' },
     { id: 'b1_150', type: 'choice', q: 'I can\'t help ___ about it.', opts: ['think','thinking','to think','thought'], correct: 1, topic: 'Сложные' },
   ];
-     </script>
