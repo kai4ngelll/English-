@@ -1,5 +1,4 @@
-<script>
-  window.LINGUA_DATA = window.LINGUA_DATA || {};
+ window.LINGUA_DATA = window.LINGUA_DATA || {};
   window.LINGUA_DATA.B2 = [
     // ─── CONDITIONALS 2 ───
     { id: 'b2_1', type: 'choice', q: 'If I ___ rich, I would travel the world.', opts: ['am','was','were','be'], correct: 2, topic: 'Conditionals 2' },
@@ -187,4 +186,3 @@
     { id: 'b2_149', type: 'choice', q: 'It\'s worth ___ this book.', opts: ['read','reading','to read','reads'], correct: 1, topic: 'Тонкие' },
     { id: 'b2_150', type: 'choice', q: 'Not only ___ late, but he also lied.', opts: ['he was','was he','he is','is he'], correct: 1, topic: 'Тонкие' },
   ];
-      </script>
