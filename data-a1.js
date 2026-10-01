@@ -1,5 +1,4 @@
-<script>
-  window.LINGUA_DATA = window.LINGUA_DATA || {};
+window.LINGUA_DATA = window.LINGUA_DATA || {};
   window.LINGUA_DATA.A1 = [
     // ─── TO BE ───
     { id: 'a1_1', type: 'choice', q: 'She ___ a teacher.', opts: ['is','are','am','be'], correct: 0, topic: 'To be' },
