@@ -468,44 +468,76 @@ const randSalt=()=>[...Array(8)].map(()=>rnd(256).toString(16).padStart(2,"0")).
 let AC=null;
 function beep(f,d=.12,type="sine",v=.09,delay=0){if(!D||!D.sound)return;try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();o.type=type;o.frequency.value=f;const t=AC.currentTime+delay;g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(AC.destination);o.start(t);o.stop(t+d)}catch(e){}}
 const sfx={ok(){beep(660,.1);beep(880,.16,"sine",.09,.09)},bad(){beep(200,.22,"triangle",.12)},win(){[523,659,784,1047].forEach((f,i)=>beep(f,.2,"sine",.09,i*.11))}};
-let ttsAudio=null,ttsTimer=null,ttsVoices=[];
-function ttsFallback(text,rate){
- try{
-  if(ttsAudio){try{ttsAudio.pause()}catch(e){}}
-  const q=encodeURIComponent(String(text).slice(0,500));
-  const r=Math.max(.5,Math.min(1.5,rate||.9));
-  ttsAudio=new Audio("https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=en-US&q="+q);
-  ttsAudio.preload="auto";
-  ttsAudio.playbackRate=r;
-  const p=ttsAudio.play();
-  if(p&&p.catch)p.catch(()=>toast("Не удалось включить озвучку. Нажми на динамик ещё раз."));
- }catch(e){toast("Озвучка недоступна на этом устройстве")}
+let ttsAudio=null,ttsTimer=null,ttsVoices=[],ttsUtterance=null,ttsBusy=0;
+function stopTTS(){
+  if(ttsTimer){clearTimeout(ttsTimer);ttsTimer=null}
+  try{if(ttsAudio){ttsAudio.pause();ttsAudio.removeAttribute("src");ttsAudio.load()}}catch(e){}
+  ttsAudio=null;
+  try{if(window.speechSynthesis)speechSynthesis.cancel()}catch(e){}
+  ttsUtterance=null;
+}
+function makeTTSUrl(text,host){
+  const q=encodeURIComponent(String(text).slice(0,200));
+  const base=host||"https://translate.googleapis.com/translate_tts";
+  return base+"?ie=UTF-8&client=gtx&tl=en&q="+q;
+}
+/*
+  Telegram Android WebView may expose speechSynthesis but refuse to start it.
+  For an actual tap on the speaker we therefore start a real MP3 immediately.
+  This keeps audio.play() inside the user's gesture instead of waiting 2.5s,
+  which is important because Android autoplay rules can reject delayed audio.
+*/
+function remoteSpeak(text,rate){
+  const urls=[
+    makeTTSUrl(text,"https://translate.googleapis.com/translate_tts"),
+    makeTTSUrl(text,"https://translate.google.com/translate_tts")
+  ];
+  let i=0,done=false;
+  const tryNext=()=>{
+    if(done||i>=urls.length)return false;
+    try{
+      if(ttsAudio){try{ttsAudio.pause()}catch(e){}}
+      const a=new Audio();
+      ttsAudio=a;a.preload="auto";a.playbackRate=Math.max(.5,Math.min(1.5,rate||.9));
+      a.onended=()=>{done=true;ttsAudio=null};
+      a.onerror=()=>{if(done)return;i++;if(!tryNext())nativeSpeak(text,rate)};
+      a.src=urls[i++];
+      const pr=a.play();
+      if(pr&&typeof pr.catch==="function")pr.catch(()=>{if(done)return;if(i<urls.length)tryNext();else nativeSpeak(text,rate)});
+      return true;
+    }catch(e){i++;return tryNext()}
+  };
+  return tryNext();
 }
 function loadTTSVoices(){try{ttsVoices=speechSynthesis.getVoices()||[]}catch(e){ttsVoices=[]}}
+function nativeSpeak(text,speed){
+ if(!window.speechSynthesis||typeof SpeechSynthesisUtterance==="undefined")return false;
+ try{
+  speechSynthesis.cancel();try{speechSynthesis.resume()}catch(e){}
+  loadTTSVoices();
+  ttsUtterance=new SpeechSynthesisUtterance(text);
+  ttsUtterance.lang="en-US";ttsUtterance.rate=Math.max(.5,Math.min(1.5,speed||.9));ttsUtterance.pitch=1;ttsUtterance.volume=1;
+  const v=ttsVoices.find(v=>/^en[-_]US/i.test(v.lang)&&/(Google|English|Natural|Aria|Jenny|Samantha)/i.test(v.name))||ttsVoices.find(v=>/^en[-_]/i.test(v.lang));
+  if(v)ttsUtterance.voice=v;
+  ttsUtterance.onend=()=>{ttsUtterance=null};
+  ttsUtterance.onerror=()=>{ttsUtterance=null};
+  speechSynthesis.speak(ttsUtterance);
+  return true;
+ }catch(e){ttsUtterance=null;return false}
+}
 function speak(text,rate){
  text=String(text||"").trim();if(!text)return;
- const speed=rate||(D?D.rate:.9);
- if(ttsTimer)clearTimeout(ttsTimer);
- let started=false,finished=false;
- try{
-  if(!("speechSynthesis"in window)||typeof SpeechSynthesisUtterance==="undefined")throw new Error("speech unavailable");
-  speechSynthesis.cancel();
-  try{speechSynthesis.resume()}catch(e){}
-  loadTTSVoices();
-  const u=new SpeechSynthesisUtterance(text);
-  u.lang="en-US";u.rate=speed;u.pitch=1;u.volume=1;
-  const v=ttsVoices.find(v=>/en[-_]US/i.test(v.lang)&&/(Samantha|Google|Aria|Jenny|Natural|English)/i.test(v.name))||ttsVoices.find(v=>/^en/i.test(v.lang));
-  if(v)u.voice=v;
-  u.onstart=()=>{started=true};
-  u.onend=()=>{finished=true;if(ttsTimer)clearTimeout(ttsTimer)};
-  u.onerror=()=>{finished=true;if(ttsTimer)clearTimeout(ttsTimer);if(!started)ttsFallback(text,speed)};
-  speechSynthesis.speak(u);
-  /* Some Android/Telegram WebViews expose speechSynthesis but never start it. */
-  ttsTimer=setTimeout(()=>{if(!started&&!finished){try{speechSynthesis.cancel()}catch(e){}ttsFallback(text,speed)}},1400);
- }catch(e){ttsFallback(text,speed)}
+ const speed=rate||(D?D.rate:.9);const id=++ttsBusy;
+ stopTTS();
+ /* First choice: network MP3 started synchronously from the speaker tap. */
+ if(remoteSpeak(text,speed)){
+   /* If both remote hosts fail, remoteSpeak calls nativeSpeak itself. */
+   return;
+ }
+ nativeSpeak(text,speed);
 }
-if("speechSynthesis"in window){speechSynthesis.onvoiceschanged=loadTTSVoices;setTimeout(loadTTSVoices,300)}
-/* Unlock the browser audio engine on the first real touch. */
+if("speechSynthesis"in window){speechSynthesis.onvoiceschanged=loadTTSVoices;setTimeout(loadTTSVoices,300);setTimeout(loadTTSVoices,1500)}
+/* Unlock Web Audio for the app's small success/error sounds. */
 document.addEventListener("pointerdown",()=>{try{if(AC&&AC.state==="suspended")AC.resume()}catch(e){}},{once:true,passive:true});
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
 
