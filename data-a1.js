@@ -182,4 +182,4 @@ window.LINGUA_DATA = window.LINGUA_DATA || {};
     { id: 'a1_149', type: 'choice', q: 'Как "дверь" по-английски?', opts: ['window','door','wall','floor'], correct: 1, topic: 'Дом' },
     { id: 'a1_150', type: 'choice', q: 'Как "окно" по-английски?', opts: ['door','window','wall','roof'], correct: 1, topic: 'Дом' },
   ];
-</script>
+
