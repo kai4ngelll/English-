@@ -1,4 +1,3 @@
-<script>
   window.LINGUA_DATA = window.LINGUA_DATA || {};
   window.LINGUA_DATA.C1 = [
     // ─── ADVANCED INVERSION ───
@@ -181,4 +180,3 @@
     { id: 'c1_149', type: 'choice', q: '___ no account should you tell him.', opts: ['On','In','At','By'], correct: 0, topic: 'Структуры' },
     { id: 'c1_150', type: 'choice', q: 'Rarely ___ such a remarkable performance.', opts: ['I have seen','have I seen','I saw','did I saw'], correct: 1, topic: 'Структуры' },
   ];
-    </script>
