@@ -1,5 +1,4 @@
-<script>
-  window.LINGUA_DATA = window.LINGUA_DATA || {};
+window.LINGUA_DATA = window.LINGUA_DATA || {};
   window.LINGUA_DATA.C2 = [
     // ─── ADVANCED INVERSION ───
     { id: 'c2_1', type: 'choice', q: 'Not until much later ___ the truth.', opts: ['I learned','did I learn','I learn','I did learn'], correct: 1, topic: 'Инверсия C2' },
@@ -175,4 +174,3 @@
     { id: 'c2_149', type: 'choice', q: 'Little did she know what ___ ahead.', opts: ['lay','lied','laid','lies'], correct: 0, topic: 'Сложнейшие' },
     { id: 'c2_150', type: 'choice', q: 'Had it not been for her, we ___ lost.', opts: ['would have been','would be','had been','were'], correct: 0, topic: 'Сложнейшие' },
   ];
-      </script>
