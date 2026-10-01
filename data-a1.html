@@ -1,0 +1,186 @@
+<script>
+  window.LINGUA_DATA = window.LINGUA_DATA || {};
+  window.LINGUA_DATA.A1 = [
+    // ─── TO BE ───
+    { id: 'a1_1', type: 'choice', q: 'She ___ a teacher.', opts: ['is','are','am','be'], correct: 0, topic: 'To be' },
+    { id: 'a1_2', type: 'choice', q: 'I ___ from Russia.', opts: ['am','is','are','be'], correct: 0, topic: 'To be' },
+    { id: 'a1_3', type: 'choice', q: 'They ___ students.', opts: ['is','am','are','be'], correct: 2, topic: 'To be' },
+    { id: 'a1_4', type: 'choice', q: 'He ___ my friend.', opts: ['am','is','are','be'], correct: 1, topic: 'To be' },
+    { id: 'a1_5', type: 'choice', q: 'We ___ happy.', opts: ['am','is','are','be'], correct: 2, topic: 'To be' },
+    { id: 'a1_6', type: 'choice', q: 'It ___ a cat.', opts: ['am','is','are','be'], correct: 1, topic: 'To be' },
+    { id: 'a1_7', type: 'choice', q: 'You ___ my friend.', opts: ['am','is','are','be'], correct: 2, topic: 'To be' },
+    { id: 'a1_8', type: 'choice', q: 'How ___ you?', opts: ['is','am','are','be'], correct: 2, topic: 'To be' },
+    { id: 'a1_9', type: 'choice', q: 'What ___ your name?', opts: ['is','am','are','be'], correct: 0, topic: 'To be' },
+    { id: 'a1_10', type: 'choice', q: 'Where ___ you from?', opts: ['is','am','are','be'], correct: 2, topic: 'To be' },
+    { id: 'a1_11', type: 'choice', q: 'I ___ a student.', opts: ['is','am','are','be'], correct: 1, topic: 'To be' },
+    { id: 'a1_12', type: 'choice', q: 'They ___ at home.', opts: ['is','am','are','be'], correct: 2, topic: 'To be' },
+    { id: 'a1_13', type: 'choice', q: 'She ___ not here.', opts: ['is','am','are','be'], correct: 0, topic: 'To be' },
+    { id: 'a1_14', type: 'choice', q: 'We ___ not ready.', opts: ['is','am','are','be'], correct: 2, topic: 'To be' },
+    { id: 'a1_15', type: 'choice', q: 'The book ___ on the table.', opts: ['is','am','are','be'], correct: 0, topic: 'To be' },
+
+    // ─── PRESENT SIMPLE ───
+    { id: 'a1_16', type: 'choice', q: 'He ___ to school every day.', opts: ['go','goes','going','gone'], correct: 1, topic: 'Present Simple' },
+    { id: 'a1_17', type: 'choice', q: 'I ___ coffee in the morning.', opts: ['drink','drinks','drinking','drank'], correct: 0, topic: 'Present Simple' },
+    { id: 'a1_18', type: 'choice', q: 'We ___ TV in the evening.', opts: ['watch','watches','watching','watched'], correct: 0, topic: 'Present Simple' },
+    { id: 'a1_19', type: 'choice', q: 'She ___ English very well.', opts: ['speak','speaks','speaking','spoke'], correct: 1, topic: 'Present Simple' },
+    { id: 'a1_20', type: 'choice', q: 'They ___ in London.', opts: ['live','lives','living','lived'], correct: 0, topic: 'Present Simple' },
+    { id: 'a1_21', type: 'choice', q: 'My brother ___ football.', opts: ['play','plays','playing','played'], correct: 1, topic: 'Present Simple' },
+    { id: 'a1_22', type: 'choice', q: 'You ___ nice.', opts: ['look','looks','looking','looked'], correct: 0, topic: 'Present Simple' },
+    { id: 'a1_23', type: 'choice', q: 'Anna ___ in a bank.', opts: ['work','works','working','worked'], correct: 1, topic: 'Present Simple' },
+    { id: 'a1_24', type: 'choice', q: 'I ___ pizza.', opts: ['like','likes','liking','liked'], correct: 0, topic: 'Present Simple' },
+    { id: 'a1_25', type: 'choice', q: 'The sun ___ in the east.', opts: ['rise','rises','rising','rose'], correct: 1, topic: 'Present Simple' },
+
+    // ─── HAVE / HAS ───
+    { id: 'a1_26', type: 'choice', q: 'My sister ___ a cat.', opts: ['have','has','having','had'], correct: 1, topic: 'Have/Has' },
+    { id: 'a1_27', type: 'choice', q: 'I ___ two brothers.', opts: ['have','has','having','had'], correct: 0, topic: 'Have/Has' },
+    { id: 'a1_28', type: 'choice', q: 'They ___ a new car.', opts: ['have','has','having','had'], correct: 0, topic: 'Have/Has' },
+    { id: 'a1_29', type: 'choice', q: 'He ___ blue eyes.', opts: ['have','has','having','had'], correct: 1, topic: 'Have/Has' },
+    { id: 'a1_30', type: 'choice', q: 'We ___ a big house.', opts: ['have','has','having','had'], correct: 0, topic: 'Have/Has' },
+
+    // ─── ARTICLES ───
+    { id: 'a1_31', type: 'choice', q: 'This is ___ apple.', opts: ['a','an','the','—'], correct: 1, topic: 'Артикли' },
+    { id: 'a1_32', type: 'choice', q: 'I have ___ book.', opts: ['a','an','the','—'], correct: 0, topic: 'Артикли' },
+    { id: 'a1_33', type: 'choice', q: 'She is ___ doctor.', opts: ['a','an','the','—'], correct: 0, topic: 'Артикли' },
+    { id: 'a1_34', type: 'choice', q: 'It is ___ orange.', opts: ['a','an','the','—'], correct: 1, topic: 'Артикли' },
+    { id: 'a1_35', type: 'choice', q: 'I like ___ music.', opts: ['a','an','the','—'], correct: 3, topic: 'Артикли' },
+    { id: 'a1_36', type: 'choice', q: 'He is ___ engineer.', opts: ['a','an','the','—'], correct: 1, topic: 'Артикли' },
+    { id: 'a1_37', type: 'choice', q: 'We have ___ dog.', opts: ['a','an','the','—'], correct: 0, topic: 'Артикли' },
+    { id: 'a1_38', type: 'choice', q: 'This is ___ elephant.', opts: ['a','an','the','—'], correct: 1, topic: 'Артикли' },
+
+    // ─── PREPOSITIONS ───
+    { id: 'a1_39', type: 'choice', q: 'My birthday is ___ May.', opts: ['in','on','at','to'], correct: 0, topic: 'Предлоги' },
+    { id: 'a1_40', type: 'choice', q: 'The meeting is ___ Monday.', opts: ['in','on','at','to'], correct: 1, topic: 'Предлоги' },
+    { id: 'a1_41', type: 'choice', q: "I wake up ___ 7 o'clock.", opts: ['in','on','at','to'], correct: 2, topic: 'Предлоги' },
+    { id: 'a1_42', type: 'choice', q: 'The book is ___ the table.', opts: ['in','on','at','to'], correct: 1, topic: 'Предлоги' },
+    { id: 'a1_43', type: 'choice', q: 'She lives ___ Moscow.', opts: ['in','on','at','to'], correct: 0, topic: 'Предлоги' },
+    { id: 'a1_44', type: 'choice', q: 'I go ___ school every day.', opts: ['in','on','at','to'], correct: 3, topic: 'Предлоги' },
+    { id: 'a1_45', type: 'choice', q: 'The cat is ___ the box.', opts: ['in','on','at','to'], correct: 0, topic: 'Предлоги' },
+    { id: 'a1_46', type: 'choice', q: 'We meet ___ the weekend.', opts: ['in','on','at','to'], correct: 1, topic: 'Предлоги' },
+    { id: 'a1_47', type: 'choice', q: 'I will come ___ 5 minutes.', opts: ['in','on','at','to'], correct: 0, topic: 'Предлоги' },
+    { id: 'a1_48', type: 'choice', q: 'See you ___ Friday.', opts: ['in','on','at','to'], correct: 1, topic: 'Предлоги' },
+
+    // ─── QUESTIONS / NEGATIVES ───
+    { id: 'a1_49', type: 'choice', q: '___ you like pizza?', opts: ['Do','Does','Are','Is'], correct: 0, topic: 'Вопросы' },
+    { id: 'a1_50', type: 'choice', q: '___ she speak English?', opts: ['Do','Does','Is','Are'], correct: 1, topic: 'Вопросы' },
+    { id: 'a1_51', type: 'choice', q: '___ they live here?', opts: ['Do','Does','Is','Are'], correct: 0, topic: 'Вопросы' },
+    { id: 'a1_52', type: 'choice', q: '___ he work?', opts: ['Do','Does','Is','Are'], correct: 1, topic: 'Вопросы' },
+    { id: 'a1_53', type: 'choice', q: 'He ___ not like coffee.', opts: ['do','does','is','are'], correct: 1, topic: 'Отрицания' },
+    { id: 'a1_54', type: 'choice', q: 'I ___ not understand.', opts: ['do','does','am','are'], correct: 0, topic: 'Отрицания' },
+    { id: 'a1_55', type: 'choice', q: 'She ___ not work here.', opts: ['do','does','is','are'], correct: 1, topic: 'Отрицания' },
+    { id: 'a1_56', type: 'choice', q: 'They ___ not know.', opts: ['do','does','is','are'], correct: 0, topic: 'Отрицания' },
+    { id: 'a1_57', type: 'choice', q: 'What ___ you do?', opts: ['do','does','is','are'], correct: 0, topic: 'Вопросы' },
+    { id: 'a1_58', type: 'choice', q: 'Where ___ she live?', opts: ['do','does','is','are'], correct: 1, topic: 'Вопросы' },
+
+    // ─── THERE IS / THERE ARE ───
+    { id: 'a1_59', type: 'choice', q: 'There ___ a cat on the sofa.', opts: ['is','are','am','be'], correct: 0, topic: 'There is/are' },
+    { id: 'a1_60', type: 'choice', q: 'There ___ two dogs in the yard.', opts: ['is','are','am','be'], correct: 1, topic: 'There is/are' },
+    { id: 'a1_61', type: 'choice', q: 'There ___ a book on the table.', opts: ['is','are','am','be'], correct: 0, topic: 'There is/are' },
+    { id: 'a1_62', type: 'choice', q: 'There ___ many people here.', opts: ['is','are','am','be'], correct: 1, topic: 'There is/are' },
+    { id: 'a1_63', type: 'choice', q: 'There ___ no milk.', opts: ['is','are','am','be'], correct: 0, topic: 'There is/are' },
+
+    // ─── PLURALS ───
+    { id: 'a1_64', type: 'choice', q: 'One box, two ___.', opts: ['boxs','boxes','box','boxen'], correct: 1, topic: 'Множественное' },
+    { id: 'a1_65', type: 'choice', q: 'One child, two ___.', opts: ['childs','childrens','children','childes'], correct: 2, topic: 'Множественное' },
+    { id: 'a1_66', type: 'choice', q: 'One man, two ___.', opts: ['mans','men','mens','man'], correct: 1, topic: 'Множественное' },
+    { id: 'a1_67', type: 'choice', q: 'One woman, two ___.', opts: ['womans','women','womens','woman'], correct: 1, topic: 'Множественное' },
+    { id: 'a1_68', type: 'choice', q: 'One city, two ___.', opts: ['citys','cities','city','cityes'], correct: 1, topic: 'Множественное' },
+    { id: 'a1_69', type: 'choice', q: 'One foot, two ___.', opts: ['foots','feet','footes','feets'], correct: 1, topic: 'Множественное' },
+    { id: 'a1_70', type: 'choice', q: 'One mouse, two ___.', opts: ['mouses','mice','mices','mouse'], correct: 1, topic: 'Множественное' },
+
+    // ─── THIS / THAT / THESE / THOSE ───
+    { id: 'a1_71', type: 'choice', q: '___ is my book. (близко)', opts: ['This','That','These','Those'], correct: 0, topic: 'Указательные' },
+    { id: 'a1_72', type: 'choice', q: '___ are my books. (близко)', opts: ['This','That','These','Those'], correct: 2, topic: 'Указательные' },
+    { id: 'a1_73', type: 'choice', q: '___ is my house. (далеко)', opts: ['This','That','These','Those'], correct: 1, topic: 'Указательные' },
+    { id: 'a1_74', type: 'choice', q: '___ are my friends. (далеко)', opts: ['This','That','These','Those'], correct: 3, topic: 'Указательные' },
+
+    // ─── TRANSLATE ───
+    { id: 'a1_75', type: 'translate', q: 'Переведи: «Я студент»', answers: ['i am a student','im a student'], topic: 'Перевод' },
+    { id: 'a1_76', type: 'translate', q: 'Переведи: «Она моя сестра»', answers: ['she is my sister','shes my sister'], topic: 'Перевод' },
+    { id: 'a1_77', type: 'translate', q: 'Переведи: «Я люблю кофе»', answers: ['i love coffee','i like coffee'], topic: 'Перевод' },
+    { id: 'a1_78', type: 'translate', q: 'Переведи: «Он живёт в Лондоне»', answers: ['he lives in london'], topic: 'Перевод' },
+    { id: 'a1_79', type: 'translate', q: 'Переведи: «Мы учим английский»', answers: ['we learn english','we study english','we are learning english'], topic: 'Перевод' },
+    { id: 'a1_80', type: 'translate', q: 'Переведи: «У меня есть кошка»', answers: ['i have a cat'], topic: 'Перевод' },
+    { id: 'a1_81', type: 'translate', q: 'Переведи: «Они не дома»', answers: ['they are not at home','they arent at home'], topic: 'Перевод' },
+    { id: 'a1_82', type: 'translate', q: 'Переведи: «Где ты?»', answers: ['where are you'], topic: 'Перевод' },
+    { id: 'a1_83', type: 'translate', q: 'Переведи: «Сколько тебе лет?»', answers: ['how old are you'], topic: 'Перевод' },
+    { id: 'a1_84', type: 'translate', q: 'Переведи: «Меня зовут Аня»', answers: ['my name is anna','my name is anya','im anna','im anya'], topic: 'Перевод' },
+    { id: 'a1_85', type: 'translate', q: 'Переведи: «Я из Москвы»', answers: ['i am from moscow','im from moscow'], topic: 'Перевод' },
+    { id: 'a1_86', type: 'translate', q: 'Переведи: «Это моя книга»', answers: ['this is my book'], topic: 'Перевод' },
+    { id: 'a1_87', type: 'translate', q: 'Переведи: «Я хочу чай»', answers: ['i want tea','i would like tea'], topic: 'Перевод' },
+    { id: 'a1_88', type: 'translate', q: 'Переведи: «Мы друзья»', answers: ['we are friends','were friends'], topic: 'Перевод' },
+    { id: 'a1_89', type: 'translate', q: 'Переведи: «Спасибо большое»', answers: ['thank you very much','thanks a lot','thank you so much'], topic: 'Перевод' },
+    { id: 'a1_90', type: 'translate', q: 'Переведи: «Доброе утро»', answers: ['good morning'], topic: 'Перевод' },
+
+    // ─── LISTEN ───
+    { id: 'a1_91', type: 'listen', q: 'Прослушай и напиши', audio: 'Hello, how are you?', answers: ['hello how are you','hello, how are you?'], topic: 'Аудирование' },
+    { id: 'a1_92', type: 'listen', q: 'Прослушай и напиши', audio: 'My name is Anna.', answers: ['my name is anna','my name is anna.'], topic: 'Аудирование' },
+    { id: 'a1_93', type: 'listen', q: 'Прослушай и напиши', audio: 'I am from Russia.', answers: ['i am from russia','im from russia'], topic: 'Аудирование' },
+    { id: 'a1_94', type: 'listen', q: 'Прослушай и напиши', audio: 'Nice to meet you.', answers: ['nice to meet you'], topic: 'Аудирование' },
+    { id: 'a1_95', type: 'listen', q: 'Прослушай и напиши', audio: 'Where are you from?', answers: ['where are you from'], topic: 'Аудирование' },
+    { id: 'a1_96', type: 'listen', q: 'Прослушай и напиши', audio: 'I have two brothers.', answers: ['i have two brothers'], topic: 'Аудирование' },
+    { id: 'a1_97', type: 'listen', q: 'Прослушай и напиши', audio: 'She is a teacher.', answers: ['she is a teacher','shes a teacher'], topic: 'Аудирование' },
+    { id: 'a1_98', type: 'listen', q: 'Прослушай и напиши', audio: 'What is your name?', answers: ['what is your name','whats your name'], topic: 'Аудирование' },
+    { id: 'a1_99', type: 'listen', q: 'Прослушай и напиши', audio: 'See you tomorrow.', answers: ['see you tomorrow'], topic: 'Аудирование' },
+    { id: 'a1_100', type: 'listen', q: 'Прослушай и напиши', audio: 'Good evening, everyone.', answers: ['good evening everyone','good evening, everyone'], topic: 'Аудирование' },
+
+    // ─── SPEAK ───
+    { id: 'a1_101', type: 'speak', q: 'Произнеси вслух', target: 'Good morning!', topic: 'Произношение' },
+    { id: 'a1_102', type: 'speak', q: 'Произнеси вслух', target: 'Thank you very much.', topic: 'Произношение' },
+    { id: 'a1_103', type: 'speak', q: 'Произнеси вслух', target: 'I would like a cup of tea.', topic: 'Произношение' },
+    { id: 'a1_104', type: 'speak', q: 'Произнеси вслух', target: 'How are you today?', topic: 'Произношение' },
+    { id: 'a1_105', type: 'speak', q: 'Произнеси вслух', target: 'My name is Anna.', topic: 'Произношение' },
+    { id: 'a1_106', type: 'speak', q: 'Произнеси вслух', target: 'Nice to meet you.', topic: 'Произношение' },
+    { id: 'a1_107', type: 'speak', q: 'Произнеси вслух', target: 'I am from Russia.', topic: 'Произношение' },
+    { id: 'a1_108', type: 'speak', q: 'Произнеси вслух', target: 'Where are you from?', topic: 'Произношение' },
+    { id: 'a1_109', type: 'speak', q: 'Произнеси вслух', target: 'Have a nice day!', topic: 'Произношение' },
+    { id: 'a1_110', type: 'speak', q: 'Произнеси вслух', target: 'See you later.', topic: 'Произношение' },
+
+    // ─── WORD ORDER ───
+    { id: 'a1_111', type: 'order', q: 'Собери предложение', words: ['I','to','go','school','every','day'], correct: 'I go to school every day', topic: 'Порядок слов' },
+    { id: 'a1_112', type: 'order', q: 'Собери предложение', words: ['She','likes','ice','cream'], correct: 'She likes ice cream', topic: 'Порядок слов' },
+    { id: 'a1_113', type: 'order', q: 'Собери предложение', words: ['He','is','a','good','student'], correct: 'He is a good student', topic: 'Порядок слов' },
+    { id: 'a1_114', type: 'order', q: 'Собери предложение', words: ['We','live','in','Moscow'], correct: 'We live in Moscow', topic: 'Порядок слов' },
+    { id: 'a1_115', type: 'order', q: 'Собери предложение', words: ['They','are','my','friends'], correct: 'They are my friends', topic: 'Порядок слов' },
+    { id: 'a1_116', type: 'order', q: 'Собери предложение', words: ['I','have','a','big','house'], correct: 'I have a big house', topic: 'Порядок слов' },
+    { id: 'a1_117', type: 'order', q: 'Собери предложение', words: ['My','mother','is','a','doctor'], correct: 'My mother is a doctor', topic: 'Порядок слов' },
+    { id: 'a1_118', type: 'order', q: 'Собери предложение', words: ['The','cat','is','on','the','sofa'], correct: 'The cat is on the sofa', topic: 'Порядок слов' },
+    { id: 'a1_119', type: 'order', q: 'Собери предложение', words: ['I','want','to','learn','English'], correct: 'I want to learn English', topic: 'Порядок слов' },
+    { id: 'a1_120', type: 'order', q: 'Собери предложение', words: ['She','has','two','cats'], correct: 'She has two cats', topic: 'Порядок слов' },
+
+    // ─── РАСШИРЕНИЕ: ПОВСЕДНЕВНЫЕ ФРАЗЫ ───
+    { id: 'a1_121', type: 'choice', q: 'Как поздороваться утром?', opts: ['Good night','Good morning','Good evening','Goodbye'], correct: 1, topic: 'Фразы' },
+    { id: 'a1_122', type: 'choice', q: 'Как попрощаться?', opts: ['Hello','Hi','Goodbye','Please'], correct: 2, topic: 'Фразы' },
+    { id: 'a1_123', type: 'choice', q: 'Как сказать «Пожалуйста» (просьба)?', opts: ['Sorry','Please','Thanks','Hello'], correct: 1, topic: 'Фразы' },
+    { id: 'a1_124', type: 'choice', q: 'Как извиниться?', opts: ['Thank you','Sorry','Please','Hi'], correct: 1, topic: 'Фразы' },
+    { id: 'a1_125', type: 'choice', q: 'Как сказать «Как дела?»', opts: ['How old are you?','How are you?','What is your name?','Where are you?'], correct: 1, topic: 'Фразы' },
+    { id: 'a1_126', type: 'choice', q: 'Что ответить на «Thank you»?', opts: ['Please','You are welcome','Sorry','Hello'], correct: 1, topic: 'Фразы' },
+    { id: 'a1_127', type: 'choice', q: 'Как спросить имя?', opts: ['How are you?','What is your name?','Where are you from?','How old are you?'], correct: 1, topic: 'Фразы' },
+    { id: 'a1_128', type: 'choice', q: 'Как спросить «Откуда ты?»', opts: ['Where are you from?','Who are you?','How are you?','What are you?'], correct: 0, topic: 'Фразы' },
+    { id: 'a1_129', type: 'choice', q: 'Как сказать «Приятно познакомиться»?', opts: ['Nice to meet you','Nice to see you','Good to know','Glad to hear'], correct: 0, topic: 'Фразы' },
+    { id: 'a1_130', type: 'choice', q: 'Как пожелать «Хорошего дня»?', opts: ['Good day','Have a nice day','Nice day','Good luck'], correct: 1, topic: 'Фразы' },
+
+    // ─── ЧИСЛА / ЦВЕТА / ДНИ ───
+    { id: 'a1_131', type: 'choice', q: 'Сколько будет "five" + "three"?', opts: ['six','seven','eight','nine'], correct: 2, topic: 'Числа' },
+    { id: 'a1_132', type: 'choice', q: 'Как переводится "twenty"?', opts: ['двенадцать','двадцать','два','десять'], correct: 1, topic: 'Числа' },
+    { id: 'a1_133', type: 'choice', q: 'Как переводится "one hundred"?', opts: ['десять','сто','тысяча','пятьдесят'], correct: 1, topic: 'Числа' },
+    { id: 'a1_134', type: 'choice', q: 'Какой цвет "red"?', opts: ['синий','красный','зелёный','жёлтый'], correct: 1, topic: 'Цвета' },
+    { id: 'a1_135', type: 'choice', q: 'Какой цвет "blue"?', opts: ['синий','красный','зелёный','чёрный'], correct: 0, topic: 'Цвета' },
+    { id: 'a1_136', type: 'choice', q: 'Какой цвет "green"?', opts: ['синий','красный','зелёный','белый'], correct: 2, topic: 'Цвета' },
+    { id: 'a1_137', type: 'choice', q: 'Какой цвет "yellow"?', opts: ['жёлтый','красный','белый','чёрный'], correct: 0, topic: 'Цвета' },
+    { id: 'a1_138', type: 'choice', q: 'Первый день недели?', opts: ['Sunday','Monday','Tuesday','Saturday'], correct: 1, topic: 'Дни недели' },
+    { id: 'a1_139', type: 'choice', q: 'Последний день недели?', opts: ['Friday','Saturday','Sunday','Monday'], correct: 2, topic: 'Дни недели' },
+    { id: 'a1_140', type: 'choice', q: 'Какой день "Wednesday"?', opts: ['понедельник','вторник','среда','четверг'], correct: 2, topic: 'Дни недели' },
+
+    // ─── СЕМЬЯ / ЕДА / ДОМ ───
+    { id: 'a1_141', type: 'choice', q: 'Как "мама" по-английски?', opts: ['father','mother','sister','brother'], correct: 1, topic: 'Семья' },
+    { id: 'a1_142', type: 'choice', q: 'Как "брат" по-английски?', opts: ['sister','father','brother','mother'], correct: 2, topic: 'Семья' },
+    { id: 'a1_143', type: 'choice', q: 'Как "бабушка" по-английски?', opts: ['grandfather','grandmother','uncle','aunt'], correct: 1, topic: 'Семья' },
+    { id: 'a1_144', type: 'choice', q: 'Как "хлеб" по-английски?', opts: ['milk','bread','water','meat'], correct: 1, topic: 'Еда' },
+    { id: 'a1_145', type: 'choice', q: 'Как "вода" по-английски?', opts: ['water','milk','juice','tea'], correct: 0, topic: 'Еда' },
+    { id: 'a1_146', type: 'choice', q: 'Как "яблоко" по-английски?', opts: ['orange','apple','banana','pear'], correct: 1, topic: 'Еда' },
+    { id: 'a1_147', type: 'choice', q: 'Как "кухня" по-английски?', opts: ['bedroom','kitchen','bathroom','living room'], correct: 1, topic: 'Дом' },
+    { id: 'a1_148', type: 'choice', q: 'Как "спальня" по-английски?', opts: ['kitchen','bedroom','bathroom','hall'], correct: 1, topic: 'Дом' },
+    { id: 'a1_149', type: 'choice', q: 'Как "дверь" по-английски?', opts: ['window','door','wall','floor'], correct: 1, topic: 'Дом' },
+    { id: 'a1_150', type: 'choice', q: 'Как "окно" по-английски?', opts: ['door','window','wall','roof'], correct: 1, topic: 'Дом' },
+  ];
+</script>
