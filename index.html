@@ -21,7 +21,7 @@ button{cursor:pointer;border:0;background:none;padding:0}
 .view{position:absolute;inset:0;display:flex;flex-direction:column;animation:vin .38s var(--ease)}
 .view.noanim,.noanim{animation:none}
 @keyframes vin{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-.scroll{flex:1;overflow-y:auto;padding:calc(14px + env(safe-area-inset-top)) 18px calc(104px + env(safe-area-inset-bottom));scrollbar-width:none}
+.scroll{flex:1;overflow-y:auto;padding:calc(88px + env(safe-area-inset-top)) 18px calc(104px + env(safe-area-inset-bottom));scrollbar-width:none}
 .scroll::-webkit-scrollbar{display:none}
 b{font-weight:700}small{color:var(--muted);font-size:13px}
 /* tabs */
@@ -46,7 +46,7 @@ b{font-weight:700}small{color:var(--muted);font-size:13px}
 .av{--s:48px;width:var(--s);height:var(--s);border-radius:50%;position:relative;overflow:hidden;flex:none;background:linear-gradient(135deg,var(--p),color-mix(in srgb,var(--p) 50%,#fff));display:grid;place-items:center;color:#fff;font-weight:800;font-size:calc(var(--s)*.42)}
 .av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 /* auth */
-.auth{justify-content:center;padding:calc(24px + env(safe-area-inset-top)) 26px calc(24px + env(safe-area-inset-bottom));overflow-y:auto}
+.auth{justify-content:center;padding:calc(88px + env(safe-area-inset-top)) 26px calc(24px + env(safe-area-inset-bottom));overflow-y:auto}
 .auth-in{text-align:center;margin:auto 0;width:100%}
 .auth .av{margin:0 auto 16px;box-shadow:0 0 0 6px var(--p-soft)}
 .auth h1{margin:6px 0 2px;font-size:28px;font-weight:800;letter-spacing:-.02em}
@@ -133,7 +133,7 @@ b{font-weight:700}small{color:var(--muted);font-size:13px}
 .card h4{margin:14px 0 0;font-size:13px;color:var(--muted);font-weight:700}
 .danger{color:var(--bad)!important}
 /* lesson */
-.les-top{display:flex;align-items:center;gap:14px;padding:calc(14px + env(safe-area-inset-top)) 18px 6px}
+.les-top{display:flex;align-items:center;gap:14px;padding:calc(88px + env(safe-area-inset-top)) 18px 6px}
 .x{width:38px;height:38px;border-radius:50%;background:var(--surface);font-size:16px;color:var(--muted);flex:none}
 .bar{flex:1;height:14px;border-radius:99px;background:var(--surface);overflow:hidden}
 .bar i{display:block;height:100%;border-radius:99px;background:var(--p);transition:width .6s var(--ease)}
@@ -344,7 +344,7 @@ const RAW=[
 "Don't give up!|Не сдавайся!;I am looking for my keys.|Я ищу свои ключи.;Can you turn off the light?|Ты можешь выключить свет?;Please take off your shoes.|Пожалуйста, сними обувь.;I need to find out the truth.|Мне нужно выяснить правду.;We ran out of milk.|У нас закончилось молоко.;She looks after her little brother.|Она присматривает за младшим братом.;They get along very well.|Они прекрасно ладят.",
 ["Фразовые глаголы","Глагол + частица (up, off, on, out…) даёт новое значение: <b>give up</b> — сдаться, <b>look for</b> — искать. Если дополнение — местоимение, оно ставится <b>между</b>: turn <b>it</b> off, put <b>them</b> on. С существительным можно оба варианта: turn off the light / turn the light off.","Turn it on, please.|Включи это, пожалуйста.;I put my coat on.|Я надел пальто.;He gave up smoking.|Он бросил курить."]]
 ];
-const KINDS=[{k:"w1",n:"Слова 1",ic:"🔤",d:"6 новых слов"},{k:"w2",n:"Слова 2",ic:"📖",d:"ещё 6 слов"},{k:"ph",n:"Фразы",ic:"💬",d:"живые предложения"},{k:"gr",n:"Грамматика",ic:"🧠",d:"правило и практика"},{k:"fin",n:"Говорение",ic:"🎤",d:"слушай и говори"}];
+const KINDS=[{k:"w1",n:"Слова 1",ic:"🔤",d:"6 новых слов"},{k:"w2",n:"Слова 2",ic:"📖",d:"ещё 6 слов"},{k:"ph",n:"Фразы",ic:"💬",d:"живые предложения"},{k:"gr",n:"Грамматика",ic:"🧠",d:"правило и практика"},{k:"ctx",n:"Контекст",ic:"🧩",d:"слово в ситуации"},{k:"read",n:"Чтение",ic:"📚",d:"смысл и детали"},{k:"trans",n:"Перевод",ic:"↔️",d:"RU ↔ EN"},{k:"coll",n:"Связки",ic:"🔗",d:"сочетаемость и порядок"},{k:"review",n:"Повторение",ic:"🔁",d:"большой смешанный блок"},{k:"fin",n:"Итог",ic:"🏁",d:"контрольная практика"}];
 const LVLS=["A1","A2","B1","B2","C1","C2"];
 /* Большой отдельный контент B2–C2. Каждый блок имеет собственную лексику,
    примеры и грамматику; уроки ниже автоматически превращают его в 5 разных занятий. */
@@ -383,6 +383,27 @@ ADVANCED_RAW.push(
 ["C2","🧠","Метафоры и подтекст","Скрытые значения и интерпретация","subtext|подтекст;metaphorical|метафорический;allusion|аллюзия;connotation|подтекст;evoke|вызывать;resonance|отклик;ambiguity|неоднозначность;irony|ирония;evocative|выразительный;layered|многослойный;literal|буквальный;figurative|переносный","The image evokes a sense of uncertainty without stating it explicitly.|Образ вызывает чувство неопределённости, не заявляя об этом прямо.;The phrase has a metaphorical rather than literal meaning.|Фраза имеет метафорический, а не буквальный смысл.;The allusion adds another layer to the passage.|Аллюзия добавляет ещё один смысловой слой отрывку.;The irony is subtle enough to be easily overlooked.|Ирония достаточно тонкая, чтобы её легко было не заметить.;The wording creates a strong emotional resonance.|Формулировка создаёт сильный эмоциональный отклик.;The ambiguity appears to be deliberate.|Похоже, неоднозначность намеренная.;The scene is highly evocative but open to interpretation.|Сцена очень выразительна, но допускает разные интерпретации.;A literal reading misses the underlying subtext.|Буквальное прочтение упускает скрытый подтекст.",["Метафорический и буквальный смысл","C2 требует различать <b>literal</b> и <b>figurative</b> meaning и видеть аллюзии, иронию и подтекст.","Taken literally, the statement is harmless; figuratively, it is much more pointed.|Если понимать буквально, утверждение безобидно; переносно оно гораздо более резкое."]]
 );
 RAW.push(...ADVANCED_RAW);
+/* Дополнительные мастер-блоки: каждый уровень получает несколько крупных
+   смешанных тем. Они собираются из разных исходных тем, поэтому курс не
+   заканчивается после нескольких дней и регулярно возвращает старую лексику
+   в новых сочетаниях. */
+const MASTER_META={
+ A1:[["База: смешанная практика","Основные конструкции и повседневная лексика"],["A1 Challenge","Закрепление базовых фраз и грамматики"],["Повседневный английский","Ситуации, вопросы и ответы"],["A1 Mastery","Большой контрольный блок"]],
+ A2:[["A2 Bridge","Связная речь и уверенная грамматика"],["Повседневные ситуации","Общение, покупки и планы"],["A2 Challenge","Смешанная практика повышенной сложности"],["A2 Mastery","Большой контрольный блок"]],
+ B1:[["B1 Fluency","Связки, времена и естественные фразы"],["Реальные ситуации","Работа, поездки и общение"],["B1 Challenge","Смешанная практика повышенной сложности"],["B1 Mastery","Большой контрольный блок"]],
+ B2:[["B2 Precision","Точность, аргументация и стиль"],["B2 Communication","Работа, медиа и общественные темы"],["B2 Challenge","Сложные контекстные задания"],["B2 Mastery","Большой контрольный блок"]],
+ C1:[["C1 Precision Lab","Точные оттенки смысла и выбор формулировки"],["C1 Academic English","Аргументация, анализ и сложные связки"],["C1 Real-World English","Рабочие, социальные и культурные ситуации"],["C1 Mastery","Большой контрольный блок уровня C1"]],
+ C2:[["C2 Nuance Lab","Подтекст, регистр и точность"],["C2 Academic & Professional","Сложная аргументация и профессиональная речь"],["C2 Interpretation","Оттенки, логика и скрытый смысл"],["C2 Mastery","Большой контрольный блок уровня C2"]]
+};
+for(const lv of LVLS){
+ const base=RAW.filter(r=>r[0]===lv);
+ MASTER_META[lv].forEach((m,mi)=>{
+  const a=base[mi%base.length],b=base[(mi+1)%base.length];
+  const words=(a[4]+";"+b[4]).split(";").slice(0,12);
+  const sents=(a[5]+";"+b[5]).split(";").slice(0,12);
+  RAW.push([lv,mi===3?"🏆":"🧪",m[0],m[1],words.join(";"),sents.join(";"),a[6]]);
+ });
+}
 const UNITS=RAW.map((r,i)=>({i,lvl:r[0],emoji:r[1],title:r[2],sub:r[3],
  words:r[4].split(";").map((x,k)=>{const[a,b]=x.split("|");return{id:i+"."+k,en:a,ru:b,u:i}}),
  sents:r[5].split(";").map((x,k)=>{const[a,b]=x.split("|");return{id:i+"s"+k,en:a,ru:b,u:i}}),g:r[6]}));
@@ -413,7 +434,7 @@ const TG=window.Telegram&&window.Telegram.WebApp;
 const app=$("#app");
 let D=null;
 const S={view:"boot",tab:"home",tg:null,acc:null,open:{},filter:"all",res:null};
-const defD=()=>({xp:0,streak:0,best:0,last:-1,days:{},done:{},words:{},ach:{},chats:0,goal:30,theme:"light",accent:"blue",sound:1,haptic:1,rate:.9,auto:0,perfect:0,lvl:"A1",levelLocked:1,placementDone:0,placementBy:{},levelStats:Object.fromEntries(["A1","A2","B1","B2","C1","C2"].map(x=>[x,{n:0,ok:0,total:0}])),upd:0});
+const defD=()=>({xp:0,streak:0,best:0,last:-1,days:{},done:{},words:{},ach:{},chats:0,goal:30,theme:"light",accent:"blue",sound:0,haptic:1,rate:.9,auto:0,perfect:0,lvl:"A1",levelLocked:1,placementDone:0,placementBy:{},det:{xp:0,tests:0,byLevel:{}},levelStats:Object.fromEntries(["A1","A2","B1","B2","C1","C2"].map(x=>[x,{n:0,ok:0,total:0}])),upd:0});
 
 /* --- Telegram --- */
 function tgInit(){
@@ -464,82 +485,8 @@ document.addEventListener("visibilitychange",()=>{if(document.hidden)pushNow()})
 async function hashPw(pw,salt){try{const b=new TextEncoder().encode(salt+":"+pw);const d=await crypto.subtle.digest("SHA-256",b);return[...new Uint8Array(d)].map(x=>x.toString(16).padStart(2,"0")).join("")}catch(e){let x=5381;const s=salt+pw;for(let i=0;i<s.length;i++)x=((x<<5)+x+s.charCodeAt(i))>>>0;return"f"+x.toString(16)}}
 const randSalt=()=>[...Array(8)].map(()=>rnd(256).toString(16).padStart(2,"0")).join("");
 
-/* --- звук --- */
-let AC=null;
-function beep(f,d=.12,type="sine",v=.09,delay=0){if(!D||!D.sound)return;try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();o.type=type;o.frequency.value=f;const t=AC.currentTime+delay;g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(AC.destination);o.start(t);o.stop(t+d)}catch(e){}}
-const sfx={ok(){beep(660,.1);beep(880,.16,"sine",.09,.09)},bad(){beep(200,.22,"triangle",.12)},win(){[523,659,784,1047].forEach((f,i)=>beep(f,.2,"sine",.09,i*.11))}};
-let ttsAudio=null,ttsTimer=null,ttsVoices=[],ttsUtterance=null,ttsBusy=0;
-function stopTTS(){
-  if(ttsTimer){clearTimeout(ttsTimer);ttsTimer=null}
-  try{if(ttsAudio){ttsAudio.pause();ttsAudio.removeAttribute("src");ttsAudio.load()}}catch(e){}
-  ttsAudio=null;
-  try{if(window.speechSynthesis)speechSynthesis.cancel()}catch(e){}
-  ttsUtterance=null;
-}
-function makeTTSUrl(text,host){
-  const q=encodeURIComponent(String(text).slice(0,200));
-  const base=host||"https://translate.googleapis.com/translate_tts";
-  return base+"?ie=UTF-8&client=gtx&tl=en&q="+q;
-}
-/*
-  Telegram Android WebView may expose speechSynthesis but refuse to start it.
-  For an actual tap on the speaker we therefore start a real MP3 immediately.
-  This keeps audio.play() inside the user's gesture instead of waiting 2.5s,
-  which is important because Android autoplay rules can reject delayed audio.
-*/
-function remoteSpeak(text,rate){
-  const urls=[
-    makeTTSUrl(text,"https://translate.googleapis.com/translate_tts"),
-    makeTTSUrl(text,"https://translate.google.com/translate_tts")
-  ];
-  let i=0,done=false;
-  const tryNext=()=>{
-    if(done||i>=urls.length)return false;
-    try{
-      if(ttsAudio){try{ttsAudio.pause()}catch(e){}}
-      const a=new Audio();
-      ttsAudio=a;a.preload="auto";a.playbackRate=Math.max(.5,Math.min(1.5,rate||.9));
-      a.onended=()=>{done=true;ttsAudio=null};
-      a.onerror=()=>{if(done)return;i++;if(!tryNext())nativeSpeak(text,rate)};
-      a.src=urls[i++];
-      const pr=a.play();
-      if(pr&&typeof pr.catch==="function")pr.catch(()=>{if(done)return;if(i<urls.length)tryNext();else nativeSpeak(text,rate)});
-      return true;
-    }catch(e){i++;return tryNext()}
-  };
-  return tryNext();
-}
-function loadTTSVoices(){try{ttsVoices=speechSynthesis.getVoices()||[]}catch(e){ttsVoices=[]}}
-function nativeSpeak(text,speed){
- if(!window.speechSynthesis||typeof SpeechSynthesisUtterance==="undefined")return false;
- try{
-  speechSynthesis.cancel();try{speechSynthesis.resume()}catch(e){}
-  loadTTSVoices();
-  ttsUtterance=new SpeechSynthesisUtterance(text);
-  ttsUtterance.lang="en-US";ttsUtterance.rate=Math.max(.5,Math.min(1.5,speed||.9));ttsUtterance.pitch=1;ttsUtterance.volume=1;
-  const v=ttsVoices.find(v=>/^en[-_]US/i.test(v.lang)&&/(Google|English|Natural|Aria|Jenny|Samantha)/i.test(v.name))||ttsVoices.find(v=>/^en[-_]/i.test(v.lang));
-  if(v)ttsUtterance.voice=v;
-  ttsUtterance.onend=()=>{ttsUtterance=null};
-  ttsUtterance.onerror=()=>{ttsUtterance=null};
-  speechSynthesis.speak(ttsUtterance);
-  return true;
- }catch(e){ttsUtterance=null;return false}
-}
-function speak(text,rate){
- text=String(text||"").trim();if(!text)return;
- const speed=rate||(D?D.rate:.9);const id=++ttsBusy;
- stopTTS();
- /* First choice: network MP3 started synchronously from the speaker tap. */
- if(remoteSpeak(text,speed)){
-   /* If both remote hosts fail, remoteSpeak calls nativeSpeak itself. */
-   return;
- }
- nativeSpeak(text,speed);
-}
-if("speechSynthesis"in window){speechSynthesis.onvoiceschanged=loadTTSVoices;setTimeout(loadTTSVoices,300);setTimeout(loadTTSVoices,1500)}
-/* Unlock Web Audio for the app's small success/error sounds. */
-document.addEventListener("pointerdown",()=>{try{if(AC&&AC.state==="suspended")AC.resume()}catch(e){}},{once:true,passive:true});
-const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+/* --- звук отключён --- */
+const sfx={ok(){},bad(){},win(){}};
 
 /* --- ui helpers --- */
 function toast(t){const e=document.createElement("div");e.className="toast";e.textContent=t;document.body.appendChild(e);requestAnimationFrame(()=>e.classList.add("show"));setTimeout(()=>{e.classList.remove("show");setTimeout(()=>e.remove(),500)},2800)}
@@ -570,7 +517,7 @@ const ACH=[
  {id:"w1",e:"📚",t:"50 слов",f:()=>Object.keys(D.words).length>=50},{id:"w2",e:"🧠",t:"150 слов",f:()=>Object.keys(D.words).length>=150},
  {id:"p1",e:"🎯",t:"Без ошибок",f:()=>D.perfect>=1},{id:"p2",e:"💯",t:"5 идеальных",f:()=>D.perfect>=5},
  {id:"c1",e:"💬",t:"Первый диалог",f:()=>D.chats>=1},{id:"c2",e:"🗣️",t:"50 сообщений",f:()=>D.chats>=50},
- {id:"u1",e:"🎓",t:"Тема пройдена",f:()=>UNITS.some(u=>unitDone(u.i)===5)}];
+ {id:"u1",e:"🎓",t:"Тема пройдена",f:()=>UNITS.some(u=>unitDone(u.i)===KINDS.length)}];
 function checkAch(){const n=[];ACH.forEach(a=>{if(!D.ach[a.id]&&a.f()){D.ach[a.id]=1;n.push(a)}});if(n.length)save();return n}
 /* ================= ЭКРАНЫ ================= */
 const A={};
@@ -637,15 +584,114 @@ function placementView(){
  const q=pool[p.i],progress=Math.round(p.i/pool.length*100);
  if(p.done&&!promotion)return`<div class="view auth"><div class="tg-safe"></div><div class="auth-in" style="text-align:left"><span class="eyebrow">Готово</span><h1>Стартовый уровень определён</h1><div class="level-result"><b>${D.lvl}</b><span>Начинаем с него. Дальше приложение будет отслеживать результаты само.</span></div><p class="lead">Уровень нельзя выбрать вручную. Когда результаты будут достаточно стабильными, появится предложение проверить следующий уровень.</p><h2 style="font-size:20px;margin:22px 0 10px">Сколько заниматься в день?</h2><div class="seg goal-seg">${[[15,"15 мин"],[30,"30 мин"],[45,"45 мин"],[60,"60 мин"]].map(g=>`<button class="${S.ob.goal===g[0]?"on":""}" data-act="obGoal" data-v="${g[0]}">${g[1]}</button>`).join("")}</div><button class="btn" data-act="obGo">Начать обучение</button></div></div>`;
  if(p.done&&promotion){const total=pool.length,correct=p.by[p.target]||0,pass=correct>=Math.ceil(total*.8);return`<div class="view auth"><div class="tg-safe"></div><div class="auth-in" style="text-align:left"><span class="eyebrow">Проверка завершена</span><h1>${pass?"Уровень подтверждён":"Пока остаёмся на текущем уровне"}</h1><div class="level-result"><b>${D.lvl}</b><span>${correct} из ${total} правильных ответов.</span></div><button class="btn" data-act="finishLevelTest">Продолжить</button></div></div>`}
- return`<div class="view auth"><div class="tg-safe"></div><div class="auth-in" style="text-align:left"><span class="eyebrow">${promotion?"Проверка следующего уровня":"Стартовый тест"} · ${p.i+1} из ${pool.length}</span><h1>${promotion?"Проверим "+p.target:"Определим твой уровень"}</h1><p class="lead">${promotion?"Ты стабильно справляешься с текущими заданиями. Попробуй следующий уровень.":"Тест одинаковый для всех новых пользователей. Он занимает около 5 минут: лексика, грамматика, чтение и короткие задания на аудирование."}</p><div class="place-bar"><i style="width:${progress}%"></i></div><div class="place-card"><small>${q.lvl} · вопрос</small><div class="q">${q.q}</div>${q.say?`<button class="bigspk" style="width:78px;height:78px;font-size:30px;border-radius:22px" data-act="say" data-t="${esc(q.say)}">🔊</button>`:""}<div class="opts">${q.opts.map((o,i)=>`<button class="opt" data-act="obAns" data-i="${i}">${esc(o)}</button>`).join("")}</div></div><small style="display:block;text-align:center;margin-top:14px">Уровень определяется автоматически. Его нельзя выбрать или изменить вручную.</small></div></div>`;
+ return`<div class="view auth"><div class="tg-safe"></div><div class="auth-in" style="text-align:left"><span class="eyebrow">${promotion?"Проверка следующего уровня":"Стартовый тест"} · ${p.i+1} из ${pool.length}</span><h1>${promotion?"Проверим "+p.target:"Определим твой уровень"}</h1><p class="lead">${promotion?"Ты стабильно справляешься с текущими заданиями. Попробуй следующий уровень.":"Тест одинаковый для всех новых пользователей. Он занимает около 5 минут: лексика, грамматика, чтение и перевод."}</p><div class="place-bar"><i style="width:${progress}%"></i></div><div class="place-card"><small>${q.lvl} · вопрос</small><div class="q">${q.q}</div><div class="opts">${q.opts.map((o,i)=>`<button class="opt" data-act="obAns" data-i="${i}">${esc(o)}</button>`).join("")}</div></div><small style="display:block;text-align:center;margin-top:14px">Уровень определяется автоматически. Его нельзя выбрать или изменить вручную.</small></div></div>`;
 }
 function vOnboard(){return placementView();}
+
+
+/* ================= DET PREP =================
+   Форматы и навыки построены по официальным материалам Duolingo English Test.
+   Это не официальный пробник и не копия реальных заданий: вопросы генерируются
+   из материалов курса и адаптируются под CEFR-уровень пользователя. */
+const DET_META={
+ B1:{name:"DET Foundation",sub:"Первое знакомство с форматом и базовыми экзаменационными навыками",count:24,rounds:2,focus:["Yes/No Vocabulary","Read and Select","Fill in the Blanks","Short Writing","Speaking prompts"]},
+ B2:{name:"DET Intensive",sub:"Системная тренировка форматов, точности и времени",count:36,rounds:3,focus:["Interactive Reading","Vocabulary in Context","Dictation strategy","Writing","Speaking"]},
+ C1:{name:"DET Advanced Lab",sub:"Длинные контексты, академическая лексика, аргументация и нюансы",count:52,rounds:4,focus:["Interactive Reading","Interactive Listening","Interactive Writing","Interactive Speaking","Academic vocabulary"]},
+ C2:{name:"DET Mastery",sub:"Глубокая экзаменационная практика: точность, нюансы, регистр и сложная аргументация",count:72,rounds:5,focus:["Advanced Reading","Interactive Listening","Interactive Writing","Interactive Speaking","Nuance & register"]}
+};
+/* Исторические режимы ниже — НЕ реальные прошлые варианты экзамена. Это оригинальные
+   симуляции, собранные по публичным описаниям эволюции DET: 2023 interactive
+   listening, 2024 interactive writing, 2025 interactive speaking и актуальный формат. */
+const DET_MOCKS={
+ C1:[
+  {id:"m23",year:"2023",name:"Archive-style 2023",sub:"Чтение + listening-интеракция + академическая точность"},
+  {id:"m24",year:"2024",name:"Archive-style 2024",sub:"Больше связного письма и двухшаговой аргументации"},
+  {id:"m25",year:"2025",name:"Archive-style 2025",sub:"Интерактивное speaking и более глубокие follow-up"},
+  {id:"now",year:"2026",name:"Current-style",sub:"Смешанный сложный пробник с современными форматами"}
+ ],
+ C2:[
+  {id:"m23",year:"2023",name:"Archive-style 2023",sub:"Длинные контексты и интерактивное понимание"},
+  {id:"m24",year:"2024",name:"Archive-style 2024",sub:"Письмо: позиция → развитие → новый угол"},
+  {id:"m25",year:"2025",name:"Archive-style 2025",sub:"Спонтанная речь и адаптивные follow-up"},
+  {id:"now",year:"2026",name:"Current-style",sub:"Полный сложный микс с упором на нюансы и регистр"}
+ ]
+};
+const DET_WORDS={
+ B1:["actually","benefit","challenge","decision","environment","experience","improve","opportunity","prevent","result","similar","support"],
+ B2:["allocate","consequence","controversial","decline","efficient","justify","nevertheless","relevant","significant","sustainable","underlying","whereas"],
+ C1:["ambiguous","coherent","compelling","constrain","distinction","inherent","mitigate","plausible","substantial","tentative","undergo","viable"],
+ C2:["albeit","connotation","discrepancy","implicit","inadvertent","nuanced","prevalent","scrutiny","subtle","unwarranted","versatile","withstand"]
+};
+function detPool(lv){return UNITS.filter(u=>u.lvl===lv);}
+function detWords(lv){const ws=detPool(lv).flatMap(u=>u.words);return shuffle([...ws,...(DET_WORDS[lv]||[]).map((en,i)=>({en,ru:"слово для продвинутой практики",id:"det."+lv+"."+i,u:-1}))]);}
+function detSentences(lv){return shuffle(detPool(lv).flatMap(u=>u.sents));}
+function detDistractors(ans,pool,n=3){return shuffle(pool.map(x=>typeof x==="string"?x:x.en).filter(x=>x!==ans)).slice(0,n)}
+function detMCQ(q,ans,opts,tag){return{t:"mcq",q,big:q,opts:shuffle([ans,...opts.filter(x=>x!==ans).slice(0,3)]),ans,small:1,det:tag}}
+function detYesNo(w){
+ const fake=["frindle","plamish","unvess","draxen","morlity","brastive"];
+ const real=typeof w==="string"?w:w.en; const isReal=Math.random()>.45; const shown=isReal?real:pick(fake);
+ return{t:"mcq",q:"Is this an English word?",big:shown,opts:["Yes","No"],ans:isReal?"Yes":"No",det:"yesno"};
+}
+function detSelf(q,sub){return{t:"detself",q:q,g:["Практика навыка",sub,"Сделай ответ самостоятельно и сравни его с чек-листом.|Оцени полноту, точность и естественность ответа."],rq:1}}
+function detMockProfile(lv,variant){
+ const base={
+  m23:["reading","listening","vocab","production"],
+  m24:["reading","writing","vocab","production"],
+  m25:["reading","speaking","follow","production"],
+  now:["reading","listening","writing","speaking","follow"]
+ };
+ return base[variant]||base.now;
+}
+function buildDET(lv,kind="practice",variant="now",help=0){
+ const meta=DET_META[lv],W=detWords(lv),Z=detSentences(lv),ex=[];
+ const isMock=kind==="mock"&&!!DET_MOCKS[lv];
+ const profile=isMock?detMockProfile(lv,variant):["vocab","reading","production","speaking","writing"];
+ ex.push({t:"note",g:[isMock?`${meta.name} · ${variant==="now"?"Current-style":("Archive-style "+(variant||"").replace("m",""))}`:meta.name,
+  isMock?"Это оригинальная учебная симуляция по публично описанным форматам DET, а не реальный прошлый вариант экзамена.":meta.sub,
+  meta.focus.join(" · ")+".|"+(help?"Режим: небольшие подсказки доступны по запросу.":"Режим: без подсказок — ближе к пробнику.")]});
+ const n=kind==="mock"?Math.round((lv==="C2"?88:72)):meta.count;
+ for(let i=0;i<n;i++){
+  const w=pick(W), s=pick(Z), mode=isMock?profile[i%profile.length]:i%10;
+  if(mode==="vocab"||mode===0||mode===1) ex.push(detYesNo(w));
+  else if(mode==="reading"||mode===2){const ans=typeof w==="string"?w:w.en;ex.push(detMCQ("Choose the word that best completes the sentence: "+s.en.replace(new RegExp("\\b"+ans+"\\b","i"),"_____"),ans,detDistractors(ans,W),"vocab"))}
+  else if(mode==="blank"||mode===3){const parts=s.en.split(" ");const idx=Math.min(parts.length-1,Math.max(1,Math.floor(parts.length/2)));const ans=clean(parts[idx]);const masked=parts.map((x,j)=>j===idx?"_____":x).join(" ");ex.push(detMCQ("Complete the sentence",ans,detDistractors(ans,Z.flatMap(x=>x.en.split(" ")),3),"blank"));ex[ex.length-1].big=masked;}
+  else if(mode==="reading2"||mode===4){const others=shuffle(Z.filter(x=>x.id!==s.id)).slice(0,3).map(x=>x.ru);ex.push(detMCQ("What is the closest meaning of this sentence?",s.ru,others,"reading"));ex[ex.length-1].big=s.en}
+  else if(mode==="production"||mode===5){ex.push({t:"type",q:"Reconstruct the sentence in natural English",big:s.ru,ans:s.en,small:1,det:"production"})}
+  else if(mode==="speaking"||mode===6){ex.push(detSelf("Speaking simulation: give a developed answer to a challenging topic for 30–60 seconds.","Answer directly → justify your position → add a concrete example → finish with a clear conclusion."));}
+  else if(mode==="follow"||mode===7){ex.push(detSelf("Interactive Speaking simulation: answer the prompt, then respond to a follow-up that challenges or deepens your idea.","Keep the same topic. Add a contrast, consequence, limitation or alternative rather than restarting."));}
+  else if(mode==="writing"||mode===8){ex.push(detSelf("Interactive Writing simulation: write a developed response, then expand it after a follow-up prompt.","First build a clear argument. Then address a new angle and make the second response add information, not repetition."));}
+  else {ex.push(detSelf("Listening / dictation strategy drill","Audio is intentionally not faked here because the app currently has no TTS. Practise by reading once, hiding the sentence, and reconstructing it from memory."));}
+  ex[ex.length-1].detHelp=help;
+ }
+ return ex;
+}
+function detProgress(lv){return (D.det&&D.det.byLevel&&D.det.byLevel[lv])||{done:0,best:0,xp:0};}
+function startDET(lv,kind="practice",variant="now",help=0){
+ const ex=buildDET(lv,kind,variant,help);L={id:"det:"+lv+":"+kind,u:-1,k:"det",detLv:lv,detKind:kind,detVariant:variant,detHelp:help,ex,i:0,ok:0,bad:0,helpUsed:0,t0:Date.now(),sel:null,typed:"",tok:[],m:null,sp:null,checked:false};S.view="detlesson";render();}
+function detPage(){
+ const lv=D.lvl;
+ if(LVLS.indexOf(lv)<2)return`<div class="view"><div class="tg-safe"></div><div class="scroll"><div class="sec"><h2>DET Preparation</h2></div><div class="goal"><div><h3>Откроется с B1</h3><small>Сначала укрепим базовый английский. Подготовка к Duolingo English Test появляется начиная с B1.</small></div></div></div></div>`;
+ const p=detProgress(lv), mocks=DET_MOCKS[lv]||[];
+ return`<div class="view"><div class="tg-safe"></div><div class="scroll">
+ <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><button class="x" data-act="detBack">‹</button><div class="sec" style="margin:0"><h2 style="margin:0">DET Preparation</h2></div></div>
+ <small>Подготовка к формату Duolingo English Test · текущий уровень ${lv}</small>
+ <div class="goal"><div><h3>${DET_META[lv].name}</h3><small>${DET_META[lv].sub}</small></div></div>
+ <div class="card"><h4>Переход к настоящему пробнику</h4><p style="color:var(--muted);line-height:1.55;margin:10px 0 0">На C1 и C2 уже можно проходить длинные пробные варианты. Я сделал несколько разных исторических симуляций: они используют оригинальные задания приложения, но опираются на публично описанную эволюцию DET, а не копируют реальные прошлые вопросы.</p></div>
+ <div class="sec"><h2>Пробники C1/C2</h2></div>
+ ${mocks.map(m=>`<div class="card" style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start"><div><b>${m.name}</b><small style="display:block;color:var(--muted);margin-top:5px;line-height:1.45">${m.sub}</small></div><span class="chip">${m.year}</span></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px"><button class="btn soft" data-act="detStart" data-v="${lv}" data-k="mock" data-m="${m.id}" data-h="1">💡 С помощью</button><button class="btn" data-act="detStart" data-v="${lv}" data-k="mock" data-m="${m.id}" data-h="0">Без помощи</button></div></div>`).join("")}
+ <div class="card"><h4>Тренировка перед пробником</h4><div style="padding:12px 0;line-height:1.65;font-weight:600">${DET_META[lv].focus.join(" · ")}</div><button class="btn" data-act="detStart" data-v="${lv}" data-k="practice">Начать тренировку</button></div>
+ <div class="sec"><h2>Прогресс</h2></div>
+ <div class="unit open"><div class="unit-h"><span class="uic">🎓</span><span class="ut"><b>${lv}</b><small>${p.done||0} пробников · лучший результат ${p.best||0}%</small></span></div></div>
+ <div class="card"><h4>Важно</h4><p style="color:var(--muted);line-height:1.5;margin:10px 0 0">Это учебные симуляции, не официальный экзамен и не архивные копии DET. Исторические режимы сделаны по публичным материалам: DET менялся со временем, а с 2025 года в нём появился Interactive Speaking; Interactive Writing был введён раньше. Реальные задания намеренно не копируются.</p></div>
+ </div></div>`;
+}
+function detLessonShell(){return`<div class="view les noanim" style="display:flex;flex-direction:column"><div class="les-top"><button class="x" data-act="quit" aria-label="Выйти">✕</button><div class="bar"><i id="bar" style="width:0%"></i></div></div><div class="les-body" id="lb"><div class="ex" id="ex"></div></div><div class="foot" id="foot"></div></div>`}
 
 function vHome(){
  const today=dayNum(),tx=D.days[today]||0,pct=Math.min(1,tx/D.goal),C=2*Math.PI*30;
  const nx=nextLesson(),due=dueIds().length,nU=nx&&UNITS[nx.u],nK=nx&&KINDS.find(k=>k.k===nx.k);
  const units=UNITS.filter(u=>S.filter==="all"||u.lvl===S.filter);
- const total=UNITS.length*5,dn=doneCount();
+ const total=UNITS.length*KINDS.length,dn=doneCount();
  return`<div class="view" id="v-home"><div class="tg-safe"></div><div class="scroll">
  <div class="hd">${avatar(S.tg.photo,S.acc.name,46)}<div class="hd-t"><b>Привет, ${esc(S.acc.first||S.acc.name)}!</b><small>${tx>=D.goal?"Цель на сегодня выполнена":"До цели осталось "+(D.goal-tx)+" XP"}</small></div><span class="chip">🔥 ${curStreak()}</span><span class="chip">⚡ ${D.xp}</span></div>
  <div class="goal"><div class="ring"><svg viewBox="0 0 76 76"><circle class="tr" cx="38" cy="38" r="30"/><circle class="pr" cx="38" cy="38" r="30" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-pct)}"/></svg><span>${tx>=D.goal?"✅":"🎯"}</span></div>
@@ -653,8 +699,9 @@ function vHome(){
  ${nx?`<button class="cont" data-act="lesson" data-u="${nx.u}" data-k="${nx.k}"><span class="e">${nU.emoji}</span><span><b>Продолжить</b><small>${esc(nU.title)}: ${nK.n}</small></span><span class="go">Начать</span></button>`:`<div class="goal"><b>Ты прошёл весь курс!</b></div>`}
  <div class="duo"><button class="fc ai" data-act="chat"><span class="ic">💬</span><b>Диалог</b><small>Практика живой речи, подсказки и исправления</small></button>
   <button class="fc ${due?"":"off"}" data-act="review"><span class="ic">🔁</span><b>Повторение</b><small>${due?"Слов к повторению: "+due:Object.keys(D.words).length?"Пока всё повторено":"Сначала пройди урок"}</small></button></div>
+ ${LVLS.indexOf(D.lvl)>=2?`<button class="cont det-card" data-act="detOpen"><span class="e">🎯</span><span><b>DET Preparation</b><small>Подготовка к Duolingo English Test · ${D.lvl}</small></span><span class="go">Открыть</span></button>`:""}
  <div class="sec"><h2>Темы</h2><small>Сейчас доступен уровень ${D.lvl}</small></div>
- ${units.map(u=>{const locked=LVLS.indexOf(u.lvl)>LVLS.indexOf(D.lvl),o=!locked&&(S.open[u.i]??(nx&&nx.u===u.i));return`<div class="unit ${o?"open":""} ${locked?"locked":""}"><button class="unit-h" ${locked?"disabled":""} data-act="${locked?"":"toggle"}" data-u="${u.i}"><span class="u-ico">${locked?"🔒":u.emoji}</span><span class="u-t"><b>${esc(u.title)}</b><small><span class="lv">${u.lvl}</span>${esc(u.sub)}</small></span><span class="u-prog">${locked?"Закрыто":unitDone(u.i)+"/5"}</span><svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-9"/></svg></button>
+ ${units.map(u=>{const locked=LVLS.indexOf(u.lvl)>LVLS.indexOf(D.lvl),o=!locked&&(S.open[u.i]??(nx&&nx.u===u.i));return`<div class="unit ${o?"open":""} ${locked?"locked":""}"><button class="unit-h" ${locked?"disabled":""} data-act="${locked?"":"toggle"}" data-u="${u.i}"><span class="u-ico">${locked?"🔒":u.emoji}</span><span class="u-t"><b>${esc(u.title)}</b><small><span class="lv">${u.lvl}</span>${esc(u.sub)}</small></span><span class="u-prog">${locked?"Закрыто":unitDone(u.i)+"/10"}</span><svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-9"/></svg></button>
   <div class="unit-b"><div><div class="path">${KINDS.map((k,ki)=>{const st=D.done[u.i+":"+k.k];const isN=nx&&nx.u===u.i&&nx.k===k.k;const off=[0,26,44,26,0][ki];
    return`<button class="node ${st?"done":""} ${isN?"next":""}" style="padding-left:${off}px" data-act="lesson" data-u="${u.i}" data-k="${k.k}"><i class="nc">${st?"✓":k.ic}</i><span><b>${k.n}</b>${st?`<small class="stars">${"★".repeat(st)}${"☆".repeat(3-st)}</small>`:`<small>${k.d}</small>`}</span></button>`}).join("")}</div></div></div></div>`}).join("")}
  </div>${tabs()}</div>`}
@@ -680,8 +727,7 @@ function vProfile(){
   <div class="row"><span>Цель на день</span>${seg("goal",[[15,"15 мин"],[30,"30 мин"],[45,"45 мин"],[60,"60 мин"]],1)}</div>
   <div class="row"><span>Уровень</span><span class="level-lock">🔒 ${D.lvl} · определяется автоматически</span></div>
  </div>
- <div class="card"><div class="row"><span>Звуки</span>${sw("sound")}</div><div class="row"><span>Вибрация</span>${sw("haptic")}</div><div class="row"><span>Эмма говорит вслух</span>${sw("auto")}</div>
-  <div class="row"><span>Скорость речи</span>${seg("rate",[[0.7,"Медл."],[0.9,"Норм."],[1.1,"Быстро"]],1)}</div></div>
+ <div class="card"><div class="row"><span>Вибрация</span>${sw("haptic")}</div></div>
  <div class="card"><div class="row"><span>Синхронизация<br><small>${cloud.ok?"Через Telegram, на всех твоих устройствах":"Только на этом устройстве. В Telegram будет общая."}</small></span></div>
   <div class="row"><button data-act="exportModal" style="font-weight:600;color:var(--p)">Код для переноса прогресса</button></div>
   <div class="row"><button data-act="logout" style="font-weight:600">Выйти из аккаунта</button></div>
@@ -691,13 +737,13 @@ function vProfile(){
 function render(keep){
  const sc=$(".scroll"),y=sc&&keep?sc.scrollTop:0;
  const v=S.view;
- app.innerHTML=v==="welcome"?vWelcome():v==="login"?vLogin():v==="onboard"?vOnboard():v==="home"?vHome():v==="profile"?vProfile():v==="done"?vDone():v==="chat"?vChat():v==="lesson"?lessonShell():"";
+ app.innerHTML=v==="welcome"?vWelcome():v==="login"?vLogin():v==="onboard"?vOnboard():v==="home"?vHome():v==="profile"?vProfile():v==="done"?vDone():v==="chat"?vChat():v==="det"?detPage():v==="lesson"?lessonShell():v==="detlesson"?detLessonShell():"";
  if(keep){const v2=$(".view");if(v2)v2.classList.add("noanim");const n=$(".scroll");if(n)n.scrollTop=y}
- if(v==="lesson")updateEx();
+ if(v==="lesson"||v==="detlesson")updateEx();
  if(v==="chat"&&CH.on)chatRebuild();
  backBtn();
 }
-function backBtn(){if(!TG||!TG.BackButton)return;try{if(["lesson","chat","done"].includes(S.view))TG.BackButton.show();else TG.BackButton.hide()}catch(e){}}
+function backBtn(){if(!TG||!TG.BackButton)return;try{if(["lesson","detlesson","det","chat","done"].includes(S.view))TG.BackButton.show();else TG.BackButton.hide()}catch(e){}}
 if(TG&&TG.BackButton)try{TG.BackButton.onClick(()=>A.back())}catch(e){}
 
 /* --- действия --- */
@@ -705,9 +751,8 @@ A.tab=el=>{S.tab=el.dataset.t;S.view=S.tab;render()};
 A.filter=el=>{S.filter=el.dataset.v;render(true)};
 A.toggle=el=>{const c=el.closest(".unit");c.classList.toggle("open");S.open[+el.dataset.u]=c.classList.contains("open")};
 A.set=el=>{const k=el.dataset.k;if(k==="lvl"||k==="theme"||k==="accent")return;let v=el.dataset.v;if(el.dataset.n)v=parseFloat(v);D[k]=v;save();render(true)};
-A.tog=el=>{const k=el.dataset.k;D[k]=D[k]?0:1;save();render(true)};
-A.say=el=>speak(el.dataset.t,el.dataset.r?parseFloat(el.dataset.r):undefined);
-A.back=()=>{if(S.view==="lesson")A.quit();else{S.view=S.tab;render()}};
+A.tog=el=>{const k=el.dataset.k;if(k==="sound"||k==="auto")return;D[k]=D[k]?0:1;save();render(true)};
+A.back=()=>{if(S.view==="lesson")A.quit();else if(S.view==="detlesson"){S.view="det";L=null;render()}else if(S.view==="det"){S.view=S.tab;render()}else{S.view=S.tab;render()}};
 A.home=()=>{S.view=S.tab;render()};
 A.exportModal=()=>{const code=btoa(unescape(encodeURIComponent(JSON.stringify({acc:S.acc,D}))));
  modal(`<h3>Код переноса</h3><p>Скопируй код и вставь его на другом устройстве при входе: «Войти по коду синхронизации». Не показывай его другим людям: в нём весь твой аккаунт.</p><textarea id="code" readonly>${code}</textarea><div class="two"><button class="btn soft" data-act="closeM">Закрыть</button><button class="btn" data-act="copyCode">Скопировать</button></div>`)};
@@ -718,10 +763,10 @@ A.doImport=()=>{try{const o=JSON.parse(decodeURIComponent(escape(atob($("#code")
  const a=getAccs();a[o.acc.u]=o.acc;setAccs(a);LS.set("lg_d_"+o.acc.u,JSON.stringify(o.D));closeModal();S.loginAcc=o.acc;S.view="login";S.otherAcc=false;render();toast("Код принят. Введи пароль от аккаунта")}catch(e){$("#err2").textContent="Код не подошёл. Скопируй его заново"}};
 A.logout=()=>{LS.del("lg_sess");pushNow();D=null;S.view="login";S.loginAcc=S.acc;S.acc=null;applyTheme();render()};
 A.resetAsk=()=>modal(`<h3>Сбросить прогресс?</h3><p>Все уроки, XP, слова и достижения будут удалены. Аккаунт и пароль останутся.</p><div class="two"><button class="btn soft" data-act="closeM">Отмена</button><button class="btn" style="background:var(--bad);box-shadow:0 4px 0 #9d2c30" data-act="resetDo">Сбросить</button></div>`);
-A.resetDo=()=>{const keep={sound:D.sound,haptic:D.haptic,rate:D.rate,auto:D.auto,lvl:D.lvl,placementDone:D.placementDone,placementBy:D.placementBy,levelLocked:1,levelStats:D.levelStats||Object.fromEntries(LVLS.map(x=>[x,{n:0,ok:0,total:0}]))};D=Object.assign(defD(),keep);save();pushNow();closeModal();render(true);toast("Прогресс сброшен")};
+A.resetDo=()=>{const keep={haptic:D.haptic,lvl:D.lvl,placementDone:D.placementDone,placementBy:D.placementBy,levelLocked:1,levelStats:D.levelStats||Object.fromEntries(LVLS.map(x=>[x,{n:0,ok:0,total:0}]))};D=Object.assign(defD(),keep);save();pushNow();closeModal();render(true);toast("Прогресс сброшен")};
 A.otherAcc=()=>{S.otherAcc=true;render();setTimeout(()=>{const u=$("#in-user");u&&u.focus()},50)};
 A.obGoal=el=>{S.ob.goal=parseInt(el.dataset.v);render(true)};
-A.obAns=el=>{const p=S.place,pool=p.mode==="promotion"?PLACEMENT.filter(x=>x.lvl===p.target):PLACEMENT,q=pool[p.i],i=+el.dataset.i,ok=q.opts[i]===q.ans;p.by[q.lvl]=(p.by[q.lvl]||0)+(ok?1:0);p.score+=(ok?1:0);p.i++;if(p.i>=pool.length){p.done=true;if(p.mode!=="promotion"){D.lvl=placementResult();D.placementDone=1;D.placementBy=Object.assign({},p.by);D.levelLocked=1;D.levelStats=D.levelStats||Object.fromEntries(LVLS.map(x=>[x,{n:0,ok:0,total:0}]));LVLS.forEach(x=>D.levelStats[x] ||= {n:0,ok:0,total:0});save();}}render(true);if(q.say&&ok)speak(q.say)};
+A.obAns=el=>{const p=S.place,pool=p.mode==="promotion"?PLACEMENT.filter(x=>x.lvl===p.target):PLACEMENT,q=pool[p.i],i=+el.dataset.i,ok=q.opts[i]===q.ans;p.by[q.lvl]=(p.by[q.lvl]||0)+(ok?1:0);p.score+=(ok?1:0);p.i++;if(p.i>=pool.length){p.done=true;if(p.mode!=="promotion"){D.lvl=placementResult();D.placementDone=1;D.placementBy=Object.assign({},p.by);D.levelLocked=1;D.levelStats=D.levelStats||Object.fromEntries(LVLS.map(x=>[x,{n:0,ok:0,total:0}]));LVLS.forEach(x=>D.levelStats[x] ||= {n:0,ok:0,total:0});save();}}render(true)};
 A.obGo=()=>{D.goal=S.ob.goal||30;S.place=null;S.open={};save();enterApp(true)};
 A.startLevelTest=target=>{S.place={mode:"promotion",target,i:0,score:0,by:Object.fromEntries(LVLS.map(x=>[x,0])),done:false};S.view="onboard";render()};
 A.startNextTest=el=>{closeModal();A.startLevelTest(el.dataset.v)};
@@ -787,60 +832,108 @@ function blankS(s){const tk=s.en.split(" ");let idx=-1;
  const txt=tk.map((x,i)=>i===idx?"_____"+(/[.,!?;:]+$/.test(x)?x.match(/[.,!?;:]+$/)[0]:""):x).join(" ");
  return{t:"blank",q:"Вставь пропущенное слово",big:txt,small:1,sub:s.ru,opts:shuffle([al,...opts]),ans:al,full:s.en,s:s.id}}
 const typeS=s=>({t:"type",q:"Переведи на английский",big:s.ru,small:1,ans:s.en,s:s.id,say:s.en});
-const speakS=s=>({t:"speak",q:"Произнеси вслух",big:s.en,small:1,sub:s.ru,say:s.en,ans:s.en,s:s.id});
+const speakS=s=>({t:"speak",q:"Переведи на английский",big:s.ru,small:1,sub:"Собери естественное английское предложение",ans:s.en,s:s.id});
 const listenRuS=s=>({t:"listenru",q:"Послушай и напиши перевод на русском",say:s.en,big:s.en,ans:s.ru,s:s.id});
 
 function buildLesson(u,k){
  const U=UNITS[u],W=U.words,Z=U.sents;let ex=[];
- if(k==="w1"||k==="w2"){const ws=k==="w1"?W.slice(0,6):W.slice(6,12);
-  ex.push({t:"intro",title:"Новые слова",items:ws});
-  shuffle(ws).forEach(w=>ex.push(mcqW(w,"e2r")));ex.push(matchW(shuffle(ws).slice(0,5)));
-  shuffle(ws).forEach(w=>ex.push(mcqW(w,"r2e")));shuffle(ws).forEach(w=>ex.push(listenW(w)));
-  shuffle(ws).forEach(w=>ex.push(listenRuW(w)));shuffle(ws).forEach(w=>ex.push(typeW(w)));ex.push(speakW(pick(ws)));
-  shuffle(ws).slice(0,3).forEach(w=>ex.push(speakW(w)));ex.push(matchW(shuffle(ws).slice(0,6)))}
- else if(k==="ph"){const ss=Z.slice(0,4);
-  ex.push({t:"intro",title:"Новые фразы",items:ss});
-  ss.forEach(s=>ex.push(mcqS(s)));ss.forEach(s=>ex.push(buildS(s)));shuffle(ss).forEach(s=>ex.push(buildS(s,1)));
-  shuffle(ss).forEach(s=>ex.push(blankS(s)));shuffle(ss).forEach(s=>ex.push(typeS(s)));shuffle(ss).forEach(s=>ex.push(listenRuS(s)));shuffle(ss).forEach(s=>ex.push(speakS(s)))}
- else if(k==="gr"){const ss=Z.slice(4,8);
+ const ws=shuffle(W).slice(0,6), ss=shuffle(Z);
+ const addMixed=(count=20)=>{
+  const pool=[];
+  for(let i=0;i<count;i++){const mode=i%7;const w=pick(W),s=pick(Z);
+   if(mode===0)pool.push(mcqW(w,"e2r"));
+   else if(mode===1)pool.push(mcqW(w,"r2e"));
+   else if(mode===2)pool.push(blankS(s));
+   else if(mode===3)pool.push(typeS(s));
+   else if(mode===4)pool.push(buildS(s));
+   else if(mode===5)pool.push(mcqS(s));
+   else pool.push(typeW(w));
+  }
+  ex.push(...shuffle(pool));
+ };
+ if(k==="w1"||k==="w2"){
+  const base=k==="w1"?W.slice(0,6):W.slice(6,12);
+  ex.push({t:"intro",title:k==="w1"?"Новые слова 1":"Новые слова 2",items:base});
+  shuffle(base).forEach(w=>ex.push(mcqW(w,"e2r")));
+  shuffle(base).forEach(w=>ex.push(mcqW(w,"r2e")));
+  shuffle(base).forEach(w=>ex.push(typeW(w)));
+  ex.push(matchW(shuffle(base)));
+  shuffle(base).forEach(w=>ex.push(blankS(pick(Z))));
+  ex.push(...shuffle(base.map(w=>mcqW(w,"e2r"))));
+ } else if(k==="ph"){
+  const base=ss.slice(0,6);
+  ex.push({t:"intro",title:"Фразы и живой английский",items:base});
+  base.forEach(s=>ex.push(mcqS(s)));
+  shuffle(base).forEach(s=>ex.push(typeS(s)));
+  shuffle(base).forEach(s=>ex.push(buildS(s)));
+  shuffle(base).forEach(s=>ex.push(blankS(s)));
+  ex.push(matchW(shuffle(W).slice(0,6)));
+ } else if(k==="gr"){
+  const base=Z.slice(4,8).length?Z.slice(4,8):Z.slice(0,4);
   ex.push({t:"note",g:U.g});
-  ss.forEach(s=>{ex.push(blankS(s));ex.push(buildS(s));ex.push(typeS(s));ex.push(listenRuS(s));});shuffle(ss).forEach(s=>ex.push(mcqS(s)));shuffle(ss).slice(0,3).forEach(s=>ex.push(speakS(s)))}
- else{const pool=[];
-  shuffle(W).slice(0,6).forEach(w=>pool.push(listenW(w)));shuffle(W).slice(0,4).forEach(w=>pool.push(listenRuW(w)));shuffle(W).slice(0,4).forEach(w=>pool.push(mcqW(w,"r2e")));
-  shuffle(Z).slice(0,4).forEach(s=>pool.push(buildS(s,1)));shuffle(Z).slice(0,4).forEach(s=>pool.push(buildS(s)));
-  shuffle(Z).slice(0,4).forEach(s=>pool.push(typeS(s)));shuffle(Z).slice(0,4).forEach(s=>pool.push(blankS(s)));
-  ex=shuffle(pool);shuffle(Z).slice(0,3).forEach(s=>ex.push(listenRuS(s)));shuffle(Z).slice(0,3).forEach(s=>ex.push(speakS(s)));ex.push(speakW(pick(W)));ex.push(matchW(shuffle(W).slice(0,6)))}
+  for(let round=0;round<3;round++){shuffle(base).forEach(s=>{ex.push(blankS(s));ex.push(buildS(s));ex.push(typeS(s));});}
+  shuffle(base).forEach(s=>ex.push(mcqS(s)));
+ } else if(k==="ctx"){
+  ex.push({t:"note",g:["Контекст","Не просто угадывай слово: смотри на смысл всей фразы и на отношения между словами.","Choose the word that best fits the context.|Выбери слово, которое лучше всего подходит по смыслу.;Use the surrounding words as clues.|Используй соседние слова как подсказки."]});
+  addMixed(28);
+ } else if(k==="read"){
+  ex.push({t:"note",g:["Чтение и понимание","Сначала прочитай предложение целиком, затем выбери точный смысл. На B2–C2 учитывай оттенки и логические связи.","Focus on meaning, not on individual words.|Сосредоточься на смысле, а не на отдельных словах.;Look for the key relationship between ideas.|Ищи ключевую связь между идеями."]});
+  for(let i=0;i<24;i++){const s=pick(Z);const others=shuffle(Z.filter(x=>x.id!==s.id)).slice(0,3).map(x=>x.ru);ex.push({t:"mcq",q:i%2?"Какой перевод точнее?":"Что утверждается в предложении?",big:s.en,opts:shuffle([s.ru,...others]),ans:s.ru,s:s.id});}
+ } else if(k==="trans"){
+  ex.push({t:"note",g:["Двунаправленный перевод","Перевод должен передавать смысл, а не механически повторять структуру исходного предложения.","Keep the meaning natural in English.|Сохраняй естественный смысл на английском.;Avoid word-for-word translation.|Избегай дословного перевода."]});
+  for(let i=0;i<28;i++){const s=pick(Z);ex.push(i%2?typeS(s):blankS(s));}
+ } else if(k==="coll"){
+  ex.push({t:"note",g:["Связки и сочетаемость","Учи не отдельные слова, а устойчивые сочетания и порядок слов.","Notice which words naturally go together.|Замечай, какие слова естественно сочетаются.;Build the sentence in a natural order.|Собирай предложение в естественном порядке."]});
+  for(let i=0;i<26;i++){const s=pick(Z);ex.push(i%3===0?buildS(s):i%3===1?blankS(s):mcqS(s));}
+ } else if(k==="review"){
+  ex.push({t:"intro",title:"Большое повторение",items:shuffle(W).slice(0,8)});
+  addMixed(36);
+  ex.push(matchW(shuffle(W).slice(0,6)));
+ } else {
+  ex.push({t:"note",g:["Итоговая практика","Здесь смешаны все основные навыки текущей темы. Ошибки будут возвращены в конце урока для закрепления.","Read carefully and choose the most precise answer.|Читай внимательно и выбирай самый точный ответ.;Accuracy matters more than speed.|Точность важнее скорости."]});
+  addMixed(42);
+  ex.push(matchW(shuffle(W).slice(0,Math.min(6,W.length))));
+  for(let i=0;i<8;i++)ex.push(typeS(pick(Z)));
+ }
  return ex}
 function buildReview(){const ids=dueIds().sort((a,b)=>D.words[a][1]-D.words[b][1]).slice(0,10);const ex=[];
  shuffle(ids).forEach((id,i)=>{const w=WBY[id];const f=[()=>mcqW(w,"e2r"),()=>mcqW(w,"r2e"),()=>listenW(w),()=>typeW(w)];ex.push(f[i%4]())});return ex}
 
 let L=null;
 function startLesson(u,k){L={id:u+":"+k,u,k,ex:buildLesson(u,k),i:0,ok:0,bad:0,t0:Date.now(),sel:null,typed:"",tok:[],m:null,sp:null,checked:false};S.view="lesson";render()}
+A.detOpen=()=>{S.view="det";render()};
+A.detBack=()=>{S.view=S.tab;render()};
+A.detStart=el=>startDET(el.dataset.v,el.dataset.k||"practice",el.dataset.m||"now",+(el.dataset.h||0));
+A.detHint=()=>{if(!L||!L.id.startsWith("det:")||L.checked)return;const e=L.ex[L.i];const H={yesno:"Оцени форму слова целиком: выглядит ли оно как нормальная английская лексема?",vocab:"Прочитай весь контекст и сначала убери варианты, которые не подходят грамматически или по смыслу.",blank:"Проверь часть речи и устойчивое сочетание вокруг пропуска.",reading:"Ищи главную мысль и связь между причиной, следствием и выводом; не переводи каждое слово.",production:"Сначала собери грамматический каркас, затем подбери точную лексику.",speaking:"Тезис → причина → конкретный пример → вывод. Не уходи от вопроса.",follow:"Не начинай заново: добавь контраст, последствие, ограничение или альтернативу.",writing:"Первый ответ должен развить позицию, второй — добавить новый угол, а не повторить первый.","":"Сначала прочитай задание целиком и выдели, что именно проверяется."};L.helpUsed=(L.helpUsed||0)+1;modal(`<h3>Небольшая подсказка</h3><p>${esc(H[e.det||""]||H[""])}</p><button class="btn" data-act="closeM">Понятно</button>`)};
 A.lesson=el=>{const u=UNITS[+el.dataset.u];if(!u||u.lvl!==D.lvl){toast("Сначала заверши текущий уровень и пройди проверку следующего");return}startLesson(+el.dataset.u,el.dataset.k)};
 A.review=()=>{if(!dueIds().length){toast(Object.keys(D.words).length?"Все слова уже повторены. Загляни завтра":"Сначала пройди урок со словами");return}
  L={id:"review",ex:buildReview(),i:0,ok:0,bad:0,t0:Date.now(),sel:null,typed:"",tok:[],m:null,sp:null,checked:false};S.view="lesson";render()};
 A.quit=()=>modal(`<h3>Выйти из урока?</h3><p>Прогресс этого урока не сохранится.</p><div class="two"><button class="btn soft" data-act="closeM">Остаться</button><button class="btn" data-act="quitDo">Выйти</button></div>`);
-A.quitDo=()=>{closeModal();L=null;S.view=S.tab;render()};
+A.quitDo=()=>{closeModal();const wasDet=!!(L&&L.id&&L.id.startsWith("det:"));L=null;S.view=wasDet?"det":S.tab;render()};
 
 function lessonShell(){return`<div class="view les noanim" style="display:flex;flex-direction:column"><div class="les-top"><button class="x" data-act="quit" aria-label="Выйти">✕</button><div class="bar"><i id="bar" style="width:0%"></i></div></div><div class="les-body" id="lb"><div class="ex" id="ex"></div></div><div class="foot" id="foot"></div></div>`}
-const spk=(t,r)=>`<button class="spk" data-act="say" data-t="${esc(t)}" ${r?`data-r="${r}"`:""} aria-label="Озвучить">🔊</button>`;
+const spk=()=>"";
 function exBody(e){
  switch(e.t){
- case"intro":return`<div class="q">${e.title}</div>${e.items.map(i=>`<button class="ic" data-act="say" data-t="${esc(i.en)}"><span class="spk">🔊</span><span><b>${esc(i.en)}</b><small>${esc(ruOf(i))}</small></span></button>`).join("")}`;
- case"note":return`<div class="q">${e.g[0]}</div><div class="note">${e.g[1]}</div>${e.g[2].split(";").map(x=>{const[a,b]=x.split("|");return`<button class="ic" data-act="say" data-t="${esc(a)}"><span class="spk">🔊</span><span><b>${esc(a)}</b><small>${esc(b)}</small></span></button>`}).join("")}`;
- case"mcq":case"blank":return`<div class="q">${e.q}</div><div class="big ${e.small?"sm":""}">${esc(e.big)}${e.say?spk(e.say):""}</div>${e.sub?`<small style="display:block;margin:-10px 0 16px">${esc(e.sub)}</small>`:""}<div class="opts">${e.opts.map((o,i)=>`<button class="opt" data-act="opt" data-i="${i}">${esc(o)}</button>`).join("")}</div>`;
- case"listen":return`<div class="q">${e.q}</div><div style="display:flex;gap:12px;align-items:center"><button class="bigspk" data-act="say" data-t="${esc(e.say)}">🔊</button><button class="spk" style="width:54px;height:54px;margin-bottom:14px" data-act="say" data-t="${esc(e.say)}" data-r="0.55" aria-label="Медленно">🐢</button></div><div class="opts">${e.opts.map((o,i)=>`<button class="opt" data-act="opt" data-i="${i}">${esc(o)}</button>`).join("")}</div>`;
+ case"intro":return`<div class="q">${e.title}</div>${e.items.map(i=>`<div class="ic"><span class="spk">📌</span><span><b>${esc(i.en)}</b><small>${esc(ruOf(i))}</small></span></div>`).join("")}`;
+ case"note":return`<div class="q">${e.g[0]}</div><div class="note">${e.g[1]}</div>${e.g[2].split(";").map(x=>{const[a,b]=x.split("|");return`<div class="ic"><span class="spk">💡</span><span><b>${esc(a)}</b><small>${esc(b)}</small></span></div>`}).join("")}`;
+ case"detself":return`<div class="q">${esc(e.q)}</div><div class="note">${esc(e.g[1])}</div><div class="ic"><span class="spk">🎯</span><span><b>Самостоятельная часть</b><small>Сделай ответ вслух или письменно, затем нажми «Готово».</small></span></div>`;
+ case"mcq":case"blank":return`<div class="q">${e.q}</div><div class="big ${e.small?"sm":""}">${esc(e.big)}</div>${e.sub?`<small style="display:block;margin:-10px 0 16px">${esc(e.sub)}</small>`:""}<div class="opts">${e.opts.map((o,i)=>`<button class="opt" data-act="opt" data-i="${i}">${esc(o)}</button>`).join("")}</div>`;
+ case"listen":return`<div class="q">${e.q.replace("Что ты слышишь?","Выбери правильный вариант")}</div><div class="big sm">${esc(e.say||e.ans||"")}</div><div class="opts">${e.opts.map((o,i)=>`<button class="opt" data-act="opt" data-i="${i}">${esc(o)}</button>`).join("")}</div>`;
  case"type":return`<div class="q">${e.q}</div><div class="big ${e.small?"sm":""}">${esc(e.big)}</div><input class="ln" id="tin" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="Напиши ответ">`;
- case"listenru":return`<div class="q">${e.q}</div><button class="bigspk" data-act="say" data-t="${esc(e.say)}">🔊</button>${e.big?`<div class="big sm">${esc(e.big)}</div>`:""}<input class="ln" id="tin" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="Напиши перевод по-русски">`;
- case"build":return`<div class="q">${e.q}</div>${e.big?`<div class="big sm">${esc(e.big)}</div>`:`<button class="bigspk" style="width:80px;height:80px;font-size:32px;border-radius:26px" data-act="say" data-t="${esc(e.say)}">🔊</button>`}<div id="bld"></div>`;
+ case"listenru":return`<div class="q">Переведи предложение на русский</div><div class="big sm">${esc(e.big||e.say||"")}</div><input class="ln" id="tin" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="Напиши перевод по-русски">`;
+ case"build":return`<div class="q">${e.q.replace("то, что слышишь","предложение")}</div>${e.big?`<div class="big sm">${esc(e.big)}</div>`:`<div class="big sm">Собери предложение</div>`}<div id="bld"></div>`;
  case"match":return`<div class="q">${e.q}</div><div class="mt" id="mt"></div>`;
- case"speak":return`<div class="q">${e.q}</div><div class="big ${e.small?"sm":""}">${esc(e.big)}${spk(e.say)}</div><small style="display:block;margin:-10px 0 14px">${esc(e.sub||"")}</small><div id="spw" style="text-align:center">${SR?`<button class="mic" data-act="mic" aria-label="Говорить">🎙️</button><small id="spt">Нажми и скажи фразу вслух</small>`:`<small style="display:block;margin-bottom:14px">Распознавание речи здесь недоступно. Скажи вслух, послушай образец и оцени себя сам.</small>`}</div>`}}
+ case"speak":return`<div class="q">Переведи и запиши ответ</div><div class="big ${e.small?"sm":""}">${esc(e.big)}</div><input class="ln" id="tin" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="Напиши перевод на английский">`;
+ }}
 function bldHtml(e){return`<div class="slots">${L.tok.map((ti,j)=>`<button class="tok" data-act="untok" data-j="${j}">${esc(e.tokens[ti])}</button>`).join("")}</div><div class="bank">${e.tokens.map((t,i)=>`<button class="tok ${L.tok.includes(i)?"gone":""}" data-act="tok" data-i="${i}">${esc(t)}</button>`).join("")}</div>`}
 function matchHtml(){const m=L.m;return`<div>${m.l.map(i=>`<button class="mb ${m.sel===i?"sel":""} ${m.done.has(i)?"done":""}" style="width:100%;margin-bottom:10px" data-act="mL" data-i="${i}">${esc(L.ex[L.i].pairs[i].en)}</button>`).join("")}</div><div>${m.r.map(i=>`<button class="mb ${m.done.has(i)?"done":""}" style="width:100%;margin-bottom:10px" data-act="mR" data-i="${i}">${esc(L.ex[L.i].pairs[i].ru)}</button>`).join("")}</div>`}
 function footFor(e){
- if(e.t==="intro"||e.t==="note")return`<button class="btn" data-act="next">Далее</button>`;
+ const hint=(L&&L.id&&L.id.startsWith("det:")&&L.detHelp&&!L.checked&&e.t!=="note")?`<button class="btn soft" data-act="detHint" style="margin-bottom:8px">💡 Небольшая подсказка</button>`:"";
+ if(e.t==="intro"||e.t==="note")return`${hint}<button class="btn" data-act="next">Далее</button>`;
+ if(e.t==="detself")return`${hint}<button class="btn" data-act="next">Готово → дальше</button>`;
  if(e.t==="match")return`<button class="btn" id="chk" data-act="next" disabled>Найди все пары</button>`;
- if(e.t==="speak")return`${SR?"":`<button class="btn" data-act="spOk">Я произнёс вслух</button>`}<button class="sk" data-act="spSkip">Не могу говорить сейчас</button>`;
+ if(e.t==="speak")return`<button class="btn" data-act="check">Проверить</button>`;
  return`<button class="btn" id="chk" data-act="check" disabled>Проверить</button>`}
 function updateEx(){
  const e=L.ex[L.i];L.sel=null;L.typed="";L.tok=[];L.checked=false;L.sp=null;
@@ -849,13 +942,13 @@ function updateEx(){
  const f=$("#foot");f.className="foot";f.innerHTML=footFor(e);$("#lb").scrollTop=0;
  if(e.t==="build")$("#bld").innerHTML=bldHtml(e);
  if(e.t==="match"){L.m={l:shuffle(e.pairs.map((_,i)=>i)),r:shuffle(e.pairs.map((_,i)=>i)),sel:null,done:new Set(),err:0};$("#mt").innerHTML=matchHtml()}
- if(e.t==="listen"||e.t==="listenru"||(e.t==="mcq"&&e.say&&!e.small))setTimeout(()=>speak(e.say),350);
- if(e.t==="type"||e.t==="listenru"){const i=$("#tin");i.addEventListener("input",()=>{L.typed=i.value;$("#chk").disabled=!i.value.trim()});setTimeout(()=>{try{i.focus()}catch(x){}},400)}
- if(e.t==="speak")setTimeout(()=>speak(e.say),350)}
+
+ if(e.t==="type"||e.t==="speak"||e.t==="listenru"){const i=$("#tin");i.addEventListener("input",()=>{L.typed=i.value;$("#chk").disabled=!i.value.trim()});setTimeout(()=>{try{i.focus()}catch(x){}},400)}
+}
 A.opt=el=>{if(L.checked)return;L.sel=+el.dataset.i;$$(".opt").forEach(o=>o.classList.toggle("sel",o===el));$("#chk").disabled=false;haptic()};
 A.tok=el=>{if(L.checked)return;const i=+el.dataset.i;if(L.tok.includes(i))return;L.tok.push(i);$("#bld").innerHTML=bldHtml(L.ex[L.i]);$("#chk").disabled=false;haptic()};
 A.untok=el=>{if(L.checked)return;L.tok.splice(+el.dataset.j,1);$("#bld").innerHTML=bldHtml(L.ex[L.i]);$("#chk").disabled=!L.tok.length};
-A.mL=el=>{L.m.sel=+el.dataset.i;speak(L.ex[L.i].pairs[L.m.sel].en);$("#mt").innerHTML=matchHtml()};
+A.mL=el=>{L.m.sel=+el.dataset.i;$("#mt").innerHTML=matchHtml()};
 A.mR=el=>{const m=L.m;if(m.sel===null){toast("Сначала выбери слово слева");return}const i=+el.dataset.i,e=L.ex[L.i];
  if(i===m.sel){m.done.add(i);m.sel=null;sfx.ok();haptic("ok");updWord(e.pairs[i].w,m.err===0)}else{m.err++;m.sel=null;sfx.bad();haptic("bad");el.classList.add("shake");updWord(e.pairs[i].w,false)}
  $("#mt").innerHTML=matchHtml();
@@ -863,7 +956,7 @@ A.mR=el=>{const m=L.m;if(m.sel===null){toast("Сначала выбери сло
 function evaluate(e){
  if(e.t==="mcq"||e.t==="listen"||e.t==="blank")return{ok:e.opts[L.sel]===e.ans,ans:e.ans};
  if(e.t==="listenru"){const v=String(L.typed||"").trim().toLowerCase(),a=String(e.ans||"").trim().toLowerCase();const ok=v===a||(a.length>5&&lev(v,a)<=2);return{ok,ans:e.ans}}
- if(e.t==="type"){const v=norm(L.typed),a=norm(e.ans);if(v===a)return{ok:true};if(a.length>4&&lev(v,a)<=1)return{ok:true,note:"Почти идеально, проверь опечатку: "+e.ans};return{ok:false,ans:e.ans}}
+ if(e.t==="type"||e.t==="speak"){const v=norm(L.typed),a=norm(e.ans);if(v===a)return{ok:true};if(a.length>4&&lev(v,a)<=1)return{ok:true,note:"Почти идеально, проверь опечатку: "+e.ans};return{ok:false,ans:e.ans}}
  if(e.t==="build"){return{ok:norm(L.tok.map(i=>e.tokens[i]).join(" "))===norm(e.ans),ans:e.ans}}}
 function settle(e,ok,skip){
  if(!e.rq&&!skip){ok?L.ok++:L.bad++;const id=e.w;if(id)updWord(id,ok)}
@@ -871,23 +964,14 @@ function settle(e,ok,skip){
 A.check=()=>{if(L.checked){return}const e=L.ex[L.i];const r=evaluate(e);if(!r)return;L.checked=true;settle(e,r.ok);
  const f=$("#foot");f.className="foot "+(r.ok?"ok":"no");r.ok?(sfx.ok(),haptic("ok")):(sfx.bad(),haptic("bad"));
  if(e.t==="mcq"||e.t==="listen"||e.t==="blank")$$(".opt").forEach((o,i)=>{if(e.opts[i]===e.ans)o.classList.add("ok");else if(i===L.sel)o.classList.add("no");o.style.pointerEvents="none"});
- if(e.t==="type"||e.t==="listenru"){$("#tin").disabled=true}
+ if(e.t==="type"||e.t==="speak"||e.t==="listenru"){$("#tin").disabled=true}
  const praise=pick(["Верно!","Отлично!","Так держать!","Именно так!","Супер!"]);
  f.innerHTML=`<div class="fbm"><b>${r.ok?praise:"Правильный ответ"}</b>${r.ok?(r.note?`<span>${esc(r.note)}</span>`:""):`<span>${esc(r.ans)}</span>`}</div><button class="btn" data-act="next">Продолжить</button>`;
- const sp=e.t==="blank"?e.full:(e.say||(e.t==="build"?e.ans:null));if(r.ok&&sp&&(e.t==="blank"||e.t==="build"))setTimeout(()=>speak(sp),200)};
+};
 A.next=()=>{L.i++;if(L.i>=L.ex.length)finish();else updateEx()};
 document.addEventListener("keydown",e=>{if(e.key==="Enter"&&S.view==="lesson"&&L){const b=$("#foot .btn");if(b&&!b.disabled)b.click()}});
-A.spOk=()=>{const e=L.ex[L.i];settle(e,true);sfx.ok();haptic("ok");A.next()};
-A.spSkip=()=>{settle(L.ex[L.i],true,true);A.next()};
-let rec=null;
-A.mic=el=>{const e=L.ex[L.i];if(rec){try{rec.stop()}catch(x){}return}
- try{rec=new SR();rec.lang="en-US";rec.interimResults=false;rec.maxAlternatives=3;el.classList.add("rec");$("#spt").textContent="Слушаю…";
-  rec.onresult=ev=>{const alts=[...ev.results[0]].map(a=>a.transcript);const best=Math.max(...alts.map(a=>sim(a,e.ans)));const ok=best>=.72;
-   el.classList.remove("rec");rec=null;L.checked=true;settle(e,ok);ok?(sfx.ok(),haptic("ok")):(sfx.bad(),haptic("bad"));
-   const f=$("#foot");f.className="foot "+(ok?"ok":"no");f.innerHTML=`<div class="fbm"><b>${ok?"Отличное произношение!":"Почти, попробуй ещё"}</b><span>Я услышала: «${esc(alts[0])}»</span></div><button class="btn" data-act="next">Продолжить</button>`};
-  rec.onerror=ev=>{el.classList.remove("rec");rec=null;$("#spt").textContent=ev.error==="not-allowed"?"Нет доступа к микрофону. Нажми «Не могу говорить сейчас»":"Не расслышала, нажми ещё раз"};
-  rec.onend=()=>{el.classList.remove("rec");rec=null};rec.start()}catch(x){rec=null;$("#spt").textContent="Микрофон недоступен"}};
 function finish(){
+ if(L&&L.id&&L.id.startsWith("det:")){const lv=L.detLv,tot=L.ok+L.bad,score=tot?Math.round(L.ok/tot*100):0;D.det=D.det||{xp:0,tests:0,byLevel:{}};D.det.tests=(D.det.tests||0)+1;D.det.byLevel=D.det.byLevel||{};const p=D.det.byLevel[lv]||{done:0,best:0,xp:0};p.done++;p.best=Math.max(p.best,score);p.xp+=score;D.det.byLevel[lv]=p;addXP(Math.max(10,Math.round(score/5)));save();toast(`Пробник завершён: ${score}% · ${L.helpUsed||0} подсказок`);S.view="det";L=null;render();return}
  const tot=L.ok+L.bad,acc=tot?L.ok/tot:1,stars=acc>=.9?3:acc>=.7?2:1,rv=L.id==="review";
  const xp=L.ok*2+(rv?5:10)+(L.bad===0&&tot>0?5:0);let offer=null;
  if(!rv){D.done[L.id]=Math.max(D.done[L.id]||0,stars);if(L.bad===0&&tot>3)D.perfect++;
@@ -1166,20 +1250,20 @@ function vChat(){
  <button class="btn" data-act="chGo">Начать разговор</button></div></div>`;
  return`<div class="view"><div class="ch-top"><button class="ib" data-act="chSetup" aria-label="Назад">←</button><div class="av" style="--s:42px"><span>E</span></div><div class="ch-t"><b>Emma</b><small>${SCN[CH.scn].t}, ${CH.level}</small></div><button class="ib ${CH.hints?"on":""}" id="hbtn" data-act="hintTog" aria-label="Подсказки">💡</button></div>
  <div class="scroll msgs" id="msgs"></div><div class="hints" id="hints"></div>
- <div class="cin-bar"><input class="cin" id="cin" placeholder="Напиши по-английски…" autocomplete="off" autocapitalize="sentences" enterkeyhint="send">${SR?`<button class="ib" id="cmic" data-act="cMic" aria-label="Голос">🎙️</button>`:""}<button class="send" data-act="send" aria-label="Отправить"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>`}
+ <div class="cin-bar"><input class="cin" id="cin" placeholder="Напиши по-английски…" autocomplete="off" autocapitalize="sentences" enterkeyhint="send"><button class="send" data-act="send" aria-label="Отправить"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>`}
 function msgHtml(m){
  if(m.r==="sys")return`<div class="sysn">${esc(m.t)}</div>`;
  if(m.r==="end")return`<div class="endc"><b>Диалог завершён. +${m.xp} XP</b><div class="two" style="display:flex;gap:10px"><button class="btn sm soft" data-act="chSetup" style="flex:1">Другая тема</button><button class="btn sm" data-act="chGo" style="flex:1">Ещё раз</button></div></div>`;
  if(m.r==="me")return`<div class="m me"><div class="b">${esc(m.t)}</div>${m.fix?`<div class="fix"><b>Лучше: ${esc(m.fix.fixed)}</b><span>${esc(m.fix.note||"")}</span></div>`:""}</div>`;
  const w=m.t.split(/(\s+)/).map(t=>/[A-Za-z]/.test(t)?`<span class="w" data-act="word" data-w="${esc(t)}">${esc(t)}</span>`:esc(t)).join("");
- return`<div class="m ai"><div class="b">${w}</div><button class="spk" data-act="say" data-t="${esc(m.t)}" aria-label="Озвучить">🔊</button></div>`}
+ return`<div class="m ai"><div class="b">${w}</div></div>`}
 const scrollEnd=()=>{const e=$("#msgs");if(e)requestAnimationFrame(()=>e.scrollTo({top:e.scrollHeight,behavior:"smooth"}))};
 function chatRebuild(){const e=$("#msgs");e.innerHTML=CH.msgs.map(msgHtml).join("");renderHints();e.scrollTop=e.scrollHeight;if(CH.over){const i=$("#cin");if(i){i.disabled=true;i.placeholder="Диалог завершён"}}}
 function addMsg(m){CH.msgs.push(m);const e=$("#msgs");if(!e)return;e.insertAdjacentHTML("beforeend",msgHtml(m));scrollEnd()}
 function renderHints(){const h=$("#hints");if(!h)return;if(!CH.hints||CH.over){h.innerHTML="";return}const k=H[CH.tag]?CH.tag:H[ALIAS[CH.tag]]?ALIAS[CH.tag]:"free";
  h.innerHTML=H[k].map(x=>{const[a,b]=x.split("|");return`<button class="hint" data-act="hint" data-t="${esc(a)}"><b>${esc(a)}</b><small>${esc(b)}</small></button>`}).join("")}
 function typing(on){const e=$("#msgs");if(!e)return;const o=$("#typ");if(o)o.remove();if(on){e.insertAdjacentHTML("beforeend",`<div class="m ai typ" id="typ"><div class="b"><i></i><i></i><i></i></div></div>`);scrollEnd()}}
-function emmaSay(text,tag){return new Promise(res=>{typing(true);setTimeout(()=>{typing(false);addMsg({r:"ai",t:text});LG.lastAssistant=text;CH.lastQ=text;if(tag)CH.tag=tag;renderHints();if(D.auto)speak(text);res()},Math.min(1700,550+text.length*13))})}
+function emmaSay(text,tag){return new Promise(res=>{typing(true);setTimeout(()=>{typing(false);addMsg({r:"ai",t:text});LG.lastAssistant=text;CH.lastQ=text;if(tag)CH.tag=tag;renderHints();res()},Math.min(1700,550+text.length*13))})}
 async function chatStart(){CH.level=D.lvl;Object.assign(CH,{on:true,msgs:[],step:0,mem:{name:null},asked:new Set(),tag:"free",topic:null,over:false,n:0,xp:0,lastQ:"",busy:false});Object.assign(LG,{turns:[],facts:{},lastIntent:"",lastTopic:"",lastUser:"",lastAssistant:"",confidence:0,misunderstandings:0,asked:new Set(),used:new Set()});CH.hints=!(["C1","C2"].includes(CH.level));S.view="chat";render();
  const sc=SCN[CH.scn];addMsg({r:"sys",t:sc.intro});CH.busy=true;
  if(sc.steps)await emmaSay(stepText(0),sc.steps[0][1]);else await emmaSay(L3("Hi! I'm Emma. How are you today?","Hi there! I'm Emma. How's your day going?","Hello! I'm Emma, great to see you. How has your day been so far?"),"how");CH.busy=false}
@@ -1199,11 +1283,8 @@ A.send=()=>chatSend();
 A.hint=el=>{const i=$("#cin");i.value=el.dataset.t;i.focus()};
 A.hintTog=()=>{CH.hints=!CH.hints;$("#hbtn").classList.toggle("on",CH.hints);renderHints()};
 document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.id==="cin"){e.preventDefault();chatSend()}});
-let crec=null;
-A.cMic=el=>{if(crec){try{crec.stop()}catch(x){}return}try{crec=new SR();crec.lang="en-US";crec.interimResults=false;el.classList.add("on");
- crec.onresult=ev=>{$("#cin").value=ev.results[0][0].transcript;$("#cin").focus()};crec.onend=()=>{el.classList.remove("on");crec=null};crec.onerror=()=>{el.classList.remove("on");crec=null;toast("Не удалось распознать речь")};crec.start()}catch(x){crec=null;toast("Микрофон недоступен")}};
 function rmTip(){const t=$("#tip");if(t)t.remove()}
-A.word=el=>{rmTip();const w=el.dataset.w.replace(/[^A-Za-z']/g,"");if(!w)return;const tr=lookup(w);speak(w,.8);const r=el.getBoundingClientRect(),t=document.createElement("div");t.className="tip";t.id="tip";
+A.word=el=>{rmTip();const w=el.dataset.w.replace(/[^A-Za-z']/g,"");if(!w)return;const tr=lookup(w);const r=el.getBoundingClientRect(),t=document.createElement("div");t.className="tip";t.id="tip";
  t.innerHTML=`<span><b>${esc(w)}</b> — ${tr?esc(tr):"нет в словаре"}</span>`;document.body.appendChild(t);
  const tw=t.offsetWidth;t.style.left=Math.max(8,Math.min(innerWidth-tw-8,r.left))+"px";t.style.top=(r.top>70?r.top-t.offsetHeight-8:r.bottom+8)+"px";setTimeout(rmTip,3200)};
 
