@@ -1,5 +1,4 @@
-<script>
-  window.LINGUA_DATA = window.LINGUA_DATA || {};
+ window.LINGUA_DATA = window.LINGUA_DATA || {};
   window.LINGUA_DATA.A2 = [
     // ─── PAST SIMPLE ───
     { id: 'a2_1', type: 'choice', q: 'I ___ to London last year.', opts: ['go','went','gone','going'], correct: 1, topic: 'Past Simple' },
@@ -183,4 +182,3 @@
     { id: 'a2_149', type: 'choice', q: 'Как сказать «Хорошего дня!»?', opts: ['Good day!','Have a nice day!','Nice day you','Day good!'], correct: 1, topic: 'Вежливость' },
     { id: 'a2_150', type: 'choice', q: 'Как сказать «До скорого!»?', opts: ['To soon!','See you soon!','Goodbye soon','Bye!'], correct: 1, topic: 'Вежливость' },
   ];
-      </script>
