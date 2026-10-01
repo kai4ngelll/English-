@@ -468,8 +468,45 @@ const randSalt=()=>[...Array(8)].map(()=>rnd(256).toString(16).padStart(2,"0")).
 let AC=null;
 function beep(f,d=.12,type="sine",v=.09,delay=0){if(!D||!D.sound)return;try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();o.type=type;o.frequency.value=f;const t=AC.currentTime+delay;g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(AC.destination);o.start(t);o.stop(t+d)}catch(e){}}
 const sfx={ok(){beep(660,.1);beep(880,.16,"sine",.09,.09)},bad(){beep(200,.22,"triangle",.12)},win(){[523,659,784,1047].forEach((f,i)=>beep(f,.2,"sine",.09,i*.11))}};
-function speak(text,rate){if(!("speechSynthesis"in window))return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=rate||(D?D.rate:.9);const vs=speechSynthesis.getVoices();const v=vs.find(v=>/en[-_]US/i.test(v.lang)&&/(Samantha|Google|Aria|Jenny|Natural)/i.test(v.name))||vs.find(v=>/^en/i.test(v.lang));if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
-if("speechSynthesis"in window)speechSynthesis.onvoiceschanged=()=>{};
+let ttsAudio=null,ttsTimer=null,ttsVoices=[];
+function ttsFallback(text,rate){
+ try{
+  if(ttsAudio){try{ttsAudio.pause()}catch(e){}}
+  const q=encodeURIComponent(String(text).slice(0,500));
+  const r=Math.max(.5,Math.min(1.5,rate||.9));
+  ttsAudio=new Audio("https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=en-US&q="+q);
+  ttsAudio.preload="auto";
+  ttsAudio.playbackRate=r;
+  const p=ttsAudio.play();
+  if(p&&p.catch)p.catch(()=>toast("Не удалось включить озвучку. Нажми на динамик ещё раз."));
+ }catch(e){toast("Озвучка недоступна на этом устройстве")}
+}
+function loadTTSVoices(){try{ttsVoices=speechSynthesis.getVoices()||[]}catch(e){ttsVoices=[]}}
+function speak(text,rate){
+ text=String(text||"").trim();if(!text)return;
+ const speed=rate||(D?D.rate:.9);
+ if(ttsTimer)clearTimeout(ttsTimer);
+ let started=false,finished=false;
+ try{
+  if(!("speechSynthesis"in window)||typeof SpeechSynthesisUtterance==="undefined")throw new Error("speech unavailable");
+  speechSynthesis.cancel();
+  try{speechSynthesis.resume()}catch(e){}
+  loadTTSVoices();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang="en-US";u.rate=speed;u.pitch=1;u.volume=1;
+  const v=ttsVoices.find(v=>/en[-_]US/i.test(v.lang)&&/(Samantha|Google|Aria|Jenny|Natural|English)/i.test(v.name))||ttsVoices.find(v=>/^en/i.test(v.lang));
+  if(v)u.voice=v;
+  u.onstart=()=>{started=true};
+  u.onend=()=>{finished=true;if(ttsTimer)clearTimeout(ttsTimer)};
+  u.onerror=()=>{finished=true;if(ttsTimer)clearTimeout(ttsTimer);if(!started)ttsFallback(text,speed)};
+  speechSynthesis.speak(u);
+  /* Some Android/Telegram WebViews expose speechSynthesis but never start it. */
+  ttsTimer=setTimeout(()=>{if(!started&&!finished){try{speechSynthesis.cancel()}catch(e){}ttsFallback(text,speed)}},1400);
+ }catch(e){ttsFallback(text,speed)}
+}
+if("speechSynthesis"in window){speechSynthesis.onvoiceschanged=loadTTSVoices;setTimeout(loadTTSVoices,300)}
+/* Unlock the browser audio engine on the first real touch. */
+document.addEventListener("pointerdown",()=>{try{if(AC&&AC.state==="suspended")AC.resume()}catch(e){}},{once:true,passive:true});
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
 
 /* --- ui helpers --- */
